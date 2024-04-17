@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/chaskas/andes"
-  spec.metadata["changelog_uri"] = "https://github.com/chaskas/andes/blob/main/engines/school/CHANGELOG.md"
+  spec.metadata["changelog_uri"] = "https://github.com/chaskas/andes/blob/main/engines/website/CHANGELOG.md"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
