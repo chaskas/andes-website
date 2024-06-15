@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", ">= 7.1.3.2"
   spec.add_dependency "cssbundling-rails", "~> 1.4"
+  spec.add_dependency "importmap-rails"
 end
