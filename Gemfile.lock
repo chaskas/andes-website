@@ -132,6 +132,9 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.2-x86_64-linux)
       racc (~> 1.4)
+    pluginator (1.5.0)
+    pre-commit (0.40.0)
+      pluginator (~> 1.5)
     psych (5.1.2)
       stringio
     puma (6.4.2)
@@ -206,6 +209,7 @@ PLATFORMS
 DEPENDENCIES
   cssbundling-rails (~> 1.4)
   importmap-rails
+  pre-commit
   puma
   sprockets-rails
   sqlite3
