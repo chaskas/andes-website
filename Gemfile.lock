@@ -94,6 +94,7 @@ GEM
     date (3.3.4)
     drb (2.2.1)
     erubi (1.12.0)
+    execjs (2.10.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.4)
@@ -208,6 +209,7 @@ PLATFORMS
 
 DEPENDENCIES
   cssbundling-rails (~> 1.4)
+  execjs
   importmap-rails
   pre-commit
   puma

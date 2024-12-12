@@ -16,3 +16,4 @@ gem "cssbundling-rails", "~> 1.4"
 gem "importmap-rails"
 
 gem "pre-commit"
+gem "execjs"
