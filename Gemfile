@@ -1,19 +1,21 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Specify your gem's dependencies in website.gemspec.
 gemspec
 
-gem "puma"
+gem 'puma'
 
-gem "sqlite3"
+gem 'sqlite3'
 
-gem "sprockets-rails"
+gem 'sprockets-rails'
 
 # Start debugger with binding.b [https://github.com/ruby/debug]
 # gem "debug", ">= 1.0.0"
-gem "cssbundling-rails", "~> 1.4"
-gem "importmap-rails"
+gem 'cssbundling-rails', '~> 1.4'
+gem 'importmap-rails'
 
-gem "pre-commit"
-gem "execjs"
+gem 'overcommit'
+gem 'rails_best_practices', require: false
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
