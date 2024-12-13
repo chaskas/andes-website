@@ -15,6 +15,7 @@ gem 'sprockets-rails'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'importmap-rails'
 
+gem 'erb_lint', require: false
 gem 'overcommit'
 gem 'rails_best_practices', require: false
 gem 'rubocop', require: false
