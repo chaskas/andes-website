@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Andes Academy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            School
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <% if current_page?(School::Engine.routes.url_helpers.participants_path) %>
+                <span class="dropdown-item active">Participants</span>
+              <% else %>
+                <%= link_to "Participants", School::Engine.routes.url_helpers.participants_path, class: "dropdown-item" %>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Billing
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <% if current_page?(Billing::Engine.routes.url_helpers.invoices_path) %>
+                <span class="dropdown-item active">Invoices</span>
+              <% else %>
+                <%= link_to "Invoices", Billing::Engine.routes.url_helpers.invoices_path, class: "dropdown-item" %>
+              <% end %>
+            </li>
+            <li>
+              <% if current_page?(Billing::Engine.routes.url_helpers.issuers_path) %>
+                <span class="dropdown-item active">Issuers</span>
+              <% else %>
+                <%= link_to "Issuers", Billing::Engine.routes.url_helpers.issuers_path, class: "dropdown-item" %>
+              <% end %>
+            </li>
+            <li>
+              <% if current_page?(Billing::Engine.routes.url_helpers.recipients_path) %>
+                <span class="dropdown-item active">Recipients</span>
+              <% else %>
+                <%= link_to "Recipients", Billing::Engine.routes.url_helpers.recipients_path, class: "dropdown-item" %>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
