@@ -1,5 +1,7 @@
 module Website
   class ApplicationController < ::ApplicationController
-    layout 'application' if Rails.application.class.name.deconstantize == 'Andes'
+
+    skip_before_action :authenticate_user!
+
   end
 end
