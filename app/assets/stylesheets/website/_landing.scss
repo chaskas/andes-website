@@ -677,22 +677,6 @@ section {
     }
   }
 
-  // Validation states
-  &.was-validated {
-    .form-control:invalid,
-    .form-check-input:invalid {
-      border-color: #dc3545;
-    }
-
-    .form-control:valid,
-    .form-check-input:valid {
-      border-color: var(--andes-sage);
-    }
-
-    .invalid-feedback {
-      font-size: 0.85rem;
-    }
-  }
 }
 
 .btn-submit {
