@@ -112,7 +112,7 @@ de:
         class_type: "Art des Unterrichts:"
         availability: "Zeitliche Verfügbarkeit:"
         comments: "Zusätzliche Kommentare oder Fragen:"
-        submit: "Probestunde buchen"
+        submit: "Senden"
         submitting: "Wird gesendet..."
         placeholders:
           student_name: "Z.B.: Maria González"

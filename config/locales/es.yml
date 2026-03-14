@@ -112,7 +112,7 @@ es:
         class_type: "Tipo de clase:"
         availability: "Disponibilidad horaria:"
         comments: "Comentarios o preguntas adicionales:"
-        submit: "Reservar Clase de Prueba"
+        submit: "Enviar"
         submitting: "Enviando..."
         placeholders:
           student_name: "Ej: María González"

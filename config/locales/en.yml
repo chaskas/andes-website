@@ -112,7 +112,7 @@ en:
         class_type: "Class type:"
         availability: "Schedule availability:"
         comments: "Additional comments or questions:"
-        submit: "Book Trial Class"
+        submit: "Send"
         submitting: "Submitting..."
         placeholders:
           student_name: "E.g.: Maria Gonzalez"
