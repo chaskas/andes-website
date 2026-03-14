@@ -19,6 +19,11 @@
 }
 
 // --- Base ---
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 76px;
@@ -28,7 +33,6 @@ body {
   font-family: 'Jost', sans-serif;
   color: var(--andes-ink);
   background-color: var(--andes-cream);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
