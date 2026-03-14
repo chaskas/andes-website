@@ -1,0 +1,141 @@
+de:
+  website:
+    nav:
+      home: "Startseite"
+      about: "Über uns"
+      courses: "Kurse"
+      contact: "Kontakt"
+      select_language: "Sprache wählen"
+    hero:
+      title: "Andes Academy"
+      tagline: "Wo Musik Grenzen überschreitet"
+      description: "Ein intimer, respektvoller und kreativer Raum für die musikalische Entwicklung im Herzen Berlins. Wie die Andenkordillere, die Länder und Grenzen durchquert, verbindet Musik Kulturen, verwandelt Räume und begleitet Menschen in ihrem Wachstum."
+      cta_classes: "Entdecken Sie unsere Kurse"
+      cta_contact: "Kontaktieren Sie uns"
+      highlights:
+        community:
+          title: "Multikulturelle Gemeinschaft"
+          description: "Ein Treffpunkt für spanischsprachige, deutsche und internationale Familien, die die Liebe zur Musik teilen."
+        heart:
+          title: "Von Herzen"
+          description: "Gegründet von der chilenischen Pianistin Paulina Suazo, mit dem Wunsch, einen Ort zu bieten, an dem Musik, Sprache und Kultur sich verweben."
+        ages:
+          title: "Für alle Altersgruppen"
+          description: "Von Babys ab 1 Jahr bis zu Senioren — alle sind willkommen zu lernen, zu spielen und sich durch Musik auszudrücken."
+    about:
+      title: "Über uns"
+      mission:
+        title: "Unsere Mission"
+        p1: "Kinder in ihrer emotionalen, künstlerischen und — wenn angemessen — sprachlichen Entwicklung durch Musik zu begleiten. Wir fördern eine Ausbildung, die auf Sensibilität, Empathie und Verbindung mit anderen basiert, mehr als auf technischer Virtuosität."
+        p2: "Wir möchten, dass jedes Kind sein Gehör, seinen Körper, seine Aufmerksamkeit weckt und dass Musik ein Werkzeug zur Entdeckung der Welt und seiner selbst wird."
+      vision:
+        title: "Unsere Vision"
+        items:
+          - "Unser Kursangebot auf weitere Instrumente wie Violine, Cello, Gitarre, Charango und Tanz erweitern"
+          - "Eine vielfältige Gemeinschaft schaffen, in der Musik eine gemeinsame Sprache ist"
+          - "Kreative, sensible und empathische Menschen ausbilden, die ihren Weg mit Bewusstsein und Sinn finden können"
+      values:
+        title: "Unsere Werte"
+        subtitle: "Die Säulen, die jede Stunde und jede Begegnung leiten"
+        items:
+          - "Kreativität"
+          - "Respekt"
+          - "Kulturelle Vielfalt"
+          - "Gemeinschaft"
+          - "Spiel und Kunst"
+          - "Empathie"
+          - "Flexibilität"
+          - "Ausdauer"
+      audience:
+        title: "Für wen ist die Schule?"
+        description: "Für alle. Von Babys ab 1 Jahr bis zu Senioren — die Andes Academy steht allen offen, die lernen, spielen, sich ausdrücken oder die Musik in einer warmen und multikulturellen Umgebung wiederentdecken möchten."
+    courses:
+      title: "Unsere Kurse"
+      subtitle: "Programme für jede Entwicklungsstufe"
+      age_label: "Empfohlenes Alter"
+      languages_label: "Sprachen"
+      modality_label: "Modalität"
+      duration_label: "Dauer"
+      pricing_label: "Preise"
+      frequency_label: "Häufigkeit"
+      piano:
+        title: "Klavierunterricht"
+        age: "Ab 4 Jahren"
+        languages: "Spanisch, Deutsch, Englisch"
+        modality: "Einzelunterricht / Präsenz"
+        duration: "20, 30, 45 oder 60 Minuten"
+        description_1: "Wir bieten personalisierten Klavierunterricht, angepasst an den Rhythmus und die Sensibilität jedes Schülers."
+        description_2: "Der Lernprozess baut auf Spiel, Zuhören, Bewegung und künstlerischem Ausdruck auf, ohne Druck oder frühe technische Anforderungen."
+        goal: "Unser Ziel ist es, Menschen auszubilden, die mit der Musik verbunden sind und fähig sind, ihre innere Welt zu erkunden und durch das Instrument auszudrücken."
+        prices:
+          - duration: "20 Min."
+            price: "60 EUR / Monat"
+          - duration: "30 Min."
+            price: "90 EUR / Monat"
+          - duration: "40 Min."
+            price: "120 EUR / Monat"
+          - duration: "60 Min."
+            price: "150 EUR / Monat"
+        info:
+          - "Häufigkeit: 1 Stunde pro Woche"
+          - "Termine direkt mit der Lehrerin zu vereinbaren"
+          - "Unterricht auf Spanisch, Deutsch oder Englisch"
+      initiation:
+        title: "Musikalische Früherziehung"
+        age: "1 bis 5 Jahre (mit Erwachsenem)"
+        languages: "Spanisch oder Deutsch"
+        modality: "Kleingruppe / Präsenz"
+        duration: "45 Min. / Max. 7 Kinder pro Sitzung"
+        description_1: "Ein warmer, kreativer und sicherer Raum, in dem die Kleinsten die Welt der Musik durch Spiel, Gesang, Rhythmus und Bewegung erkunden."
+        description_2: "Jede Stunde fördert die emotionale, sprachliche und sensorische Entwicklung und schafft eine lebendige und bedeutungsvolle musikalische Grundlage von früher Kindheit an."
+        description_3: "Wir arbeiten mit einfachen Instrumenten: Eier-Rasseln, Klanghölzer, Bänder, Tücher und Live-Musik. Die Aktivitäten werden an die Entwicklungsstufe jedes Kindes angepasst."
+        focus: "Der Fokus liegt darauf, bedeutungsvolle Erfahrungen der Verbindung, Aufmerksamkeit und geteilten Freude zu bieten."
+        price: "40 EUR / Monat"
+        info:
+          - "Häufigkeit: 1 Stunde pro Woche (45 Minuten)"
+          - "Maximal 7 Kinder pro Gruppe (mit Begleitperson)"
+          - "Unterricht auf Spanisch oder Deutsch"
+    enrollment:
+      title: "Anmeldung"
+      p1: "Möchten Sie, dass Ihr Kind seinen musikalischen Weg mit uns beginnt? Oder suchen Sie vielleicht selbst Klavierunterricht in einer respektvollen und kreativen Umgebung."
+      p2: "Füllen Sie das Formular aus und wir werden uns mit Ihnen in Verbindung setzen, um eine"
+      free_trial: "kostenlose Probestunde"
+      p3: "zu vereinbaren, Ihre Fragen zu beantworten oder Ihnen bei der Wahl der richtigen Gruppe oder Modalität zu helfen."
+      welcome: "Wir freuen uns auf Sie in der Andes Academy!"
+      form:
+        student_name: "Name des Schülers/der Schülerin:"
+        student_age: "Alter des Schülers/der Schülerin:"
+        contact_name: "Name der Kontaktperson:"
+        email: "E-Mail:"
+        phone: "Telefon (optional):"
+        preferred_language: "Bevorzugte Sprache für den Unterricht:"
+        class_type: "Art des Unterrichts:"
+        availability: "Zeitliche Verfügbarkeit:"
+        comments: "Zusätzliche Kommentare oder Fragen:"
+        submit: "Anmeldung absenden"
+        submitting: "Wird gesendet..."
+        placeholders:
+          student_name: "Z.B.: Maria González"
+          student_age: "Z.B.: 3 Jahre"
+          contact_name: "Z.B.: Ana González"
+          email: "email@beispiel.de"
+          phone: "+49 123 456 789"
+          availability: "Z.B.: Mittwochnachmittag, Samstagvormittag"
+          comments: "Schreiben Sie hier Ihre Fragen oder Kommentare..."
+        languages:
+          espanol: "Spanisch"
+          aleman: "Deutsch"
+          ingles: "Englisch"
+        class_types:
+          iniciacion_musical: "Musikalische Früherziehung (1-5 Jahre)"
+          piano: "Klavierunterricht (ab 4 Jahren)"
+      success: "Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns bald mit Ihnen in Verbindung setzen."
+      error: "Beim Senden des Formulars ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+    footer:
+      location: "Berlin, Deutschland"
+      founded: "Gegründet 2024"
+      founder_label: "Gründerin"
+      founder_name: "Paulina Suazo"
+      founder_title: "Chilenische Pianistin"
+      rights: "Alle Rechte vorbehalten."
+      contact: "Kontakt"

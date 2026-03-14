@@ -10,8 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 0) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_14_192934) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "website_enrollments", force: :cascade do |t|
+    t.string "student_name"
+    t.string "student_age"
+    t.string "contact_name"
+    t.string "email"
+    t.string "phone"
+    t.string "preferred_language"
+    t.string "class_type"
+    t.string "availability"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end

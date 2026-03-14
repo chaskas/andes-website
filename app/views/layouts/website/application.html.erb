@@ -1,19 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale %>">
 <head>
-  <title>Andes Academy Website</title>
+  <title>Andes Academy - <%= t('website.hero.tagline') %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="<%= t('website.hero.description') %>">
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <%= stylesheet_link_tag "website", media: "all" %>
   <%= javascript_importmap_tags "application-website" %>
-
 </head>
-<body class="h-100">
+<body data-bs-spy="scroll" data-bs-target="#main-navbar">
 
-<%= yield %>
+  <%= render "website/shared/navbar" %>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <%= render "website/shared/footer" %>
+
 </body>
 </html>

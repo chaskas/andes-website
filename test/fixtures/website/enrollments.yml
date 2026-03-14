@@ -1,0 +1,21 @@
+valid_enrollment:
+  student_name: "María González"
+  student_age: "3 años"
+  contact_name: "Ana González"
+  email: "ana@example.com"
+  phone: "+49 123 456 789"
+  preferred_language: "espanol"
+  class_type: "iniciacion_musical"
+  availability: "Miércoles por la tarde"
+  comments: "Nos gustaría una clase de prueba"
+
+piano_enrollment:
+  student_name: "Lucas Schmidt"
+  student_age: "6 años"
+  contact_name: "Peter Schmidt"
+  email: "peter@example.com"
+  phone: "+49 987 654 321"
+  preferred_language: "aleman"
+  class_type: "piano"
+  availability: "Sábados por la mañana"
+  comments: ""

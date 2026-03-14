@@ -1,0 +1,116 @@
+<section id="contacto" class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <%# Introductory text %>
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <h2 class="display-5 fw-bold mb-4"><%= t('website.enrollment.title') %></h2>
+        <p><%= t('website.enrollment.p1') %></p>
+        <p>
+          <%= t('website.enrollment.p2') %>
+          <strong class="text-warning"><%= t('website.enrollment.free_trial') %></strong>,
+          <%= t('website.enrollment.p3') %>
+        </p>
+        <p class="fw-semibold text-warning fs-5"><%= t('website.enrollment.welcome') %></p>
+      </div>
+
+      <%# Enrollment form %>
+      <div class="col-lg-7">
+        <div class="card border-warning shadow-sm">
+          <div class="card-body p-4">
+            <% if flash[:notice] %>
+              <div class="alert alert-success d-flex align-items-center" role="alert">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                <%= flash[:notice] %>
+              </div>
+            <% end %>
+            <% if flash[:alert] %>
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <i class="bi bi-exclamation-circle-fill me-2"></i>
+                <%= flash[:alert] %>
+              </div>
+            <% end %>
+
+            <%= form_with model: @enrollment || Website::Enrollment.new,
+                          url: website.enrollments_path,
+                          local: true,
+                          class: "needs-validation" do |f| %>
+
+              <% if @enrollment&.errors&.any? %>
+                <div class="alert alert-danger">
+                  <ul class="mb-0">
+                    <% @enrollment.errors.full_messages.each do |msg| %>
+                      <li><%= msg %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class="mb-3">
+                <%= f.label :student_name, "#{t('website.enrollment.form.student_name')} *", class: "form-label" %>
+                <%= f.text_field :student_name, class: "form-control", placeholder: t('website.enrollment.form.placeholders.student_name'), required: true %>
+              </div>
+
+              <div class="mb-3">
+                <%= f.label :student_age, "#{t('website.enrollment.form.student_age')} *", class: "form-label" %>
+                <%= f.text_field :student_age, class: "form-control", placeholder: t('website.enrollment.form.placeholders.student_age'), required: true %>
+              </div>
+
+              <div class="mb-3">
+                <%= f.label :contact_name, "#{t('website.enrollment.form.contact_name')} *", class: "form-label" %>
+                <%= f.text_field :contact_name, class: "form-control", placeholder: t('website.enrollment.form.placeholders.contact_name'), required: true %>
+              </div>
+
+              <div class="mb-3">
+                <%= f.label :email, "#{t('website.enrollment.form.email')} *", class: "form-label" %>
+                <%= f.email_field :email, class: "form-control", placeholder: t('website.enrollment.form.placeholders.email'), required: true %>
+              </div>
+
+              <div class="mb-3">
+                <%= f.label :phone, t('website.enrollment.form.phone'), class: "form-label" %>
+                <%= f.telephone_field :phone, class: "form-control", placeholder: t('website.enrollment.form.placeholders.phone') %>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"><%= t('website.enrollment.form.preferred_language') %> *</label>
+                <div>
+                  <% %w[espanol aleman ingles].each do |lang| %>
+                    <div class="form-check form-check-inline">
+                      <%= f.radio_button :preferred_language, lang, class: "form-check-input", required: true %>
+                      <%= f.label "preferred_language_#{lang}", t("website.enrollment.form.languages.#{lang}"), class: "form-check-label" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label"><%= t('website.enrollment.form.class_type') %> *</label>
+                <div>
+                  <% %w[iniciacion_musical piano].each do |type| %>
+                    <div class="form-check">
+                      <%= f.radio_button :class_type, type, class: "form-check-input", required: true %>
+                      <%= f.label "class_type_#{type}", t("website.enrollment.form.class_types.#{type}"), class: "form-check-label" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <%= f.label :availability, "#{t('website.enrollment.form.availability')} *", class: "form-label" %>
+                <%= f.text_field :availability, class: "form-control", placeholder: t('website.enrollment.form.placeholders.availability'), required: true %>
+              </div>
+
+              <div class="mb-4">
+                <%= f.label :comments, t('website.enrollment.form.comments'), class: "form-label" %>
+                <%= f.text_area :comments, class: "form-control", rows: 3, placeholder: t('website.enrollment.form.placeholders.comments') %>
+              </div>
+
+              <div class="d-grid">
+                <%= f.submit t('website.enrollment.form.submit'), class: "btn btn-warning btn-lg" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

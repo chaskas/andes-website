@@ -1,0 +1,73 @@
+<section id="sobre" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center display-5 fw-bold mb-5"><%= t('website.about.title') %></h2>
+
+    <%# Mission %>
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="d-flex align-items-center mb-3">
+              <i class="bi bi-stars text-warning me-2"></i>
+              <%= t('website.about.mission.title') %>
+            </h3>
+            <p><%= t('website.about.mission.p1') %></p>
+            <p class="mb-0"><%= t('website.about.mission.p2') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# Vision %>
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-4">
+            <h3 class="d-flex align-items-center mb-3">
+              <i class="bi bi-mountains text-warning me-2"></i>
+              <%= t('website.about.vision.title') %>
+            </h3>
+            <ul class="list-unstyled mb-0">
+              <% t('website.about.vision.items').each do |item| %>
+                <li class="d-flex align-items-start mb-3">
+                  <i class="bi bi-check-circle-fill text-warning me-2 mt-1"></i>
+                  <span><%= item %></span>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%# Values %>
+    <div class="row mb-5">
+      <div class="col-lg-8 mx-auto text-center">
+        <h3 class="mb-2"><%= t('website.about.values.title') %></h3>
+        <p class="text-muted mb-4"><%= t('website.about.values.subtitle') %></p>
+        <div class="row g-3">
+          <% t('website.about.values.items').each do |value| %>
+            <div class="col-6 col-md-3">
+              <div class="badge bg-warning text-dark fs-6 w-100 py-2"><%= value %></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <%# Audience %>
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="card border-warning bg-warning bg-opacity-10">
+          <div class="card-body p-4 text-center">
+            <h3 class="d-flex align-items-center justify-content-center mb-3">
+              <i class="bi bi-people-fill text-warning me-2"></i>
+              <%= t('website.about.audience.title') %>
+            </h3>
+            <p class="mb-0"><%= t('website.about.audience.description') %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -13,5 +13,11 @@ module Website
       app.config.importmap.paths << root.join("config/importmap.rb")
       app.config.importmap.cache_sweepers << root.join("app/javascript")
     end
+
+    initializer "website.i18n" do
+      config.i18n.load_path += Dir[root.join("config/locales/**/*.yml")]
+      config.i18n.default_locale = :es
+      config.i18n.available_locales = %i[es en de]
+    end
   end
 end

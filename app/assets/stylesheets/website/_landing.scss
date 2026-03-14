@@ -1,0 +1,94 @@
+// Orange/Amber color scheme for Andes Academy landing page
+
+$andes-orange: #e67e22;
+$andes-amber: #f59e0b;
+$andes-orange-light: #fff7ed;
+$andes-amber-light: #fffbeb;
+
+// Hero section
+.hero-section {
+  min-height: 100vh;
+  padding-top: 80px; // Account for fixed navbar
+  background: linear-gradient(135deg, $andes-orange-light, $andes-amber-light, #fefce8);
+}
+
+// Smooth scrolling
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 76px; // Navbar height offset for anchor links
+}
+
+// Fixed navbar spacing
+body {
+  padding-top: 0;
+}
+
+// Highlight cards hover effect
+.highlight-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Section spacing
+section {
+  scroll-margin-top: 76px;
+}
+
+// Override Bootstrap warning color to match orange theme
+.btn-warning {
+  background-color: $andes-orange;
+  border-color: $andes-orange;
+  color: #fff;
+
+  &:hover, &:focus {
+    background-color: darken($andes-orange, 8%);
+    border-color: darken($andes-orange, 8%);
+    color: #fff;
+  }
+}
+
+.btn-outline-warning {
+  color: $andes-orange;
+  border-color: $andes-orange;
+
+  &:hover, &:focus {
+    background-color: $andes-orange;
+    border-color: $andes-orange;
+    color: #fff;
+  }
+}
+
+.text-warning {
+  color: $andes-orange !important;
+}
+
+.bg-warning {
+  background-color: $andes-orange !important;
+}
+
+.border-warning {
+  border-color: $andes-orange !important;
+}
+
+.badge.bg-warning {
+  background-color: $andes-amber !important;
+}
+
+.table-warning {
+  --bs-table-bg: $andes-amber-light;
+  --bs-table-border-color: #fde68a;
+}
+
+// Navbar brand styling
+.navbar-brand .bi-mountains {
+  font-size: 1.5rem;
+}
+
+// Footer
+footer {
+  margin-top: 0 !important;
+}

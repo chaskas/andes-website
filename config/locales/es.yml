@@ -1,0 +1,141 @@
+es:
+  website:
+    nav:
+      home: "Inicio"
+      about: "Sobre Nosotros"
+      courses: "Cursos"
+      contact: "Contacto"
+      select_language: "Selecciona idioma"
+    hero:
+      title: "Andes Academy"
+      tagline: "Donde la música cruza fronteras"
+      description: "Un espacio íntimo, respetuoso y creativo para el desarrollo musical en el corazón de Berlín. Como la cordillera de los Andes que atraviesa países y fronteras, la música conecta culturas, transforma espacios y acompaña a las personas en su crecimiento."
+      cta_classes: "Conoce Nuestras Clases"
+      cta_contact: "Contáctanos"
+      highlights:
+        community:
+          title: "Comunidad Multicultural"
+          description: "Punto de encuentro para familias hispanohablantes, alemanas e internacionales que comparten el amor por la música."
+        heart:
+          title: "Desde el Corazón"
+          description: "Fundada por la pianista chilena Paulina Suazo, con el deseo de ofrecer un lugar donde la música, la lengua y la cultura se entrelacen."
+        ages:
+          title: "Para Todas las Edades"
+          description: "Desde bebés de 1 año hasta adultos mayores, todos son bienvenidos a aprender, jugar y expresarse con la música."
+    about:
+      title: "Sobre Nosotros"
+      mission:
+        title: "Nuestra Misión"
+        p1: "Acompañar a los niños en su desarrollo emocional, artístico y —cuando corresponde— lingüístico, a través de la música. Promovemos una formación basada en la sensibilidad, la empatía y la conexión con el otro, más que en el virtuosismo técnico."
+        p2: "Queremos que cada niño y niña despierte su oído, su cuerpo, su atención, y que la música sea una herramienta de descubrimiento del mundo y de sí mismo."
+      vision:
+        title: "Nuestra Visión"
+        items:
+          - "Ampliar nuestras clases a otros instrumentos como violín, cello, guitarra, charango y danza"
+          - "Crear una comunidad diversa donde la música sea un lenguaje común"
+          - "Formar personas creativas, sensibles y empáticas que puedan encontrar su camino con conciencia y propósito"
+      values:
+        title: "Nuestros Valores"
+        subtitle: "Los pilares que guían cada clase y cada encuentro"
+        items:
+          - "Creatividad"
+          - "Respeto"
+          - "Diversidad cultural"
+          - "Comunidad"
+          - "Juego y arte"
+          - "Empatía"
+          - "Flexibilidad"
+          - "Perseverancia"
+      audience:
+        title: "¿A quién va dirigida la escuela?"
+        description: "A todos. Desde bebés de 1 año hasta adultos mayores, Andes Academy está abierta a quienes deseen aprender, jugar, expresarse o reencontrarse con la música en un ambiente cálido y multicultural."
+    courses:
+      title: "Nuestros Cursos"
+      subtitle: "Programas diseñados para cada etapa del desarrollo"
+      age_label: "Edad recomendada"
+      languages_label: "Idiomas"
+      modality_label: "Modalidad"
+      duration_label: "Duración"
+      pricing_label: "Precios"
+      frequency_label: "Frecuencia"
+      piano:
+        title: "Clases de Piano"
+        age: "Desde los 4 años"
+        languages: "Español, alemán, inglés"
+        modality: "Individual / Presencial"
+        duration: "20, 30, 45 o 60 minutos"
+        description_1: "Ofrecemos clases de piano personalizadas, adaptadas al ritmo y sensibilidad de cada estudiante."
+        description_2: "El proceso de aprendizaje se construye desde el juego, la escucha, el movimiento y la expresión artística, sin presiones ni exigencias técnicas tempranas."
+        goal: "Nuestro objetivo es formar personas conectadas con la música, capaces de explorar su mundo interior y expresarlo a través del instrumento."
+        prices:
+          - duration: "20 min"
+            price: "60 EUR / mes"
+          - duration: "30 min"
+            price: "90 EUR / mes"
+          - duration: "40 min"
+            price: "120 EUR / mes"
+          - duration: "60 min"
+            price: "150 EUR / mes"
+        info:
+          - "Frecuencia: 1 clase semanal"
+          - "Horarios a convenir directamente con la profesora"
+          - "Clases en español, alemán o inglés"
+      initiation:
+        title: "Iniciación Musical"
+        age: "De 1 a 5 años (con adulto)"
+        languages: "Español o alemán"
+        modality: "Grupo pequeño / Presencial"
+        duration: "45 min / Máx. 7 niños por sesión"
+        description_1: "Un espacio cálido, creativo y seguro donde los más pequeños exploran el mundo de la música a través del juego, el canto, el ritmo y el movimiento."
+        description_2: "Cada clase estimula el desarrollo emocional, lingüístico y sensorial, creando una base musical viva y significativa desde la primera infancia."
+        description_3: "Trabajamos con instrumentos simples: huevitos sonajeros, claves, cintas, pañuelos, y música en vivo. Las actividades se adaptan al desarrollo evolutivo de cada niño."
+        focus: "El foco está en ofrecer experiencias significativas de conexión, atención y alegría compartida."
+        price: "40 EUR / mes"
+        info:
+          - "Frecuencia: 1 clase semanal (45 minutos)"
+          - "Máximo 7 niños por grupo (con acompañante)"
+          - "Clases en español o alemán"
+    enrollment:
+      title: "Inscripción"
+      p1: "¿Te gustaría que tu hijo/a comience su camino musical con nosotros? O quizás tú mismo/a estás buscando clases de piano en un ambiente respetuoso y creativo."
+      p2: "Completa el formulario y nos pondremos en contacto contigo para coordinar una"
+      free_trial: "clase de prueba gratis"
+      p3: "resolver tus dudas o ayudarte a elegir el grupo o modalidad adecuada."
+      welcome: "¡Te esperamos en Andes Academy!"
+      form:
+        student_name: "Nombre del alumno/a:"
+        student_age: "Edad del alumno/a:"
+        contact_name: "Nombre del adulto de contacto:"
+        email: "Correo electrónico:"
+        phone: "Teléfono (opcional):"
+        preferred_language: "Idioma preferido para las clases:"
+        class_type: "Tipo de clase:"
+        availability: "Disponibilidad horaria:"
+        comments: "Comentarios o preguntas adicionales:"
+        submit: "Enviar Inscripción"
+        submitting: "Enviando..."
+        placeholders:
+          student_name: "Ej: María González"
+          student_age: "Ej: 3 años"
+          contact_name: "Ej: Ana González"
+          email: "correo@ejemplo.com"
+          phone: "+49 123 456 789"
+          availability: "Ej: Miércoles por la tarde, sábados por la mañana"
+          comments: "Escribe aquí cualquier pregunta o comentario..."
+        languages:
+          espanol: "Español"
+          aleman: "Alemán"
+          ingles: "Inglés"
+        class_types:
+          iniciacion_musical: "Iniciación Musical (1-5 años)"
+          piano: "Clases de Piano (desde 4 años)"
+      success: "¡Gracias! Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto."
+      error: "Hubo un error al enviar el formulario. Por favor intenta de nuevo."
+    footer:
+      location: "Berlín, Alemania"
+      founded: "Fundada en 2024"
+      founder_label: "Fundadora"
+      founder_name: "Paulina Suazo"
+      founder_title: "Pianista chilena"
+      rights: "Todos los derechos reservados."
+      contact: "Contacto"

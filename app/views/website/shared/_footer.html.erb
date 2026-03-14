@@ -1,0 +1,33 @@
+<footer class="bg-dark text-light py-5 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 class="d-flex align-items-center mb-3">
+          <i class="bi bi-mountains me-2 text-warning"></i>
+          Andes Academy
+        </h5>
+        <p class="text-secondary"><%= t('website.hero.tagline') %></p>
+      </div>
+
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h6 class="text-warning mb-3"><%= t('website.footer.contact') %></h6>
+        <p class="text-secondary mb-1">
+          <i class="bi bi-geo-alt me-2"></i><%= t('website.footer.location') %>
+        </p>
+        <p class="text-secondary mb-1"><%= t('website.footer.founded') %></p>
+      </div>
+
+      <div class="col-md-4">
+        <h6 class="text-warning mb-3"><%= t('website.footer.founder_label') %></h6>
+        <p class="text-light mb-1"><%= t('website.footer.founder_name') %></p>
+        <p class="text-secondary"><%= t('website.footer.founder_title') %></p>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-4">
+
+    <div class="text-center text-secondary">
+      <small>&copy; <%= Date.current.year %> Andes Academy. <%= t('website.footer.rights') %></small>
+    </div>
+  </div>
+</footer>
