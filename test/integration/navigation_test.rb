@@ -28,17 +28,18 @@ class NavigationTest < ActionDispatch::IntegrationTest
     get root_url
     assert_response :success
 
-    assert_match I18n.t("website.hero.highlights.community.title"), response.body
-    assert_match I18n.t("website.hero.highlights.heart.title"), response.body
-    assert_match I18n.t("website.hero.highlights.ages.title"), response.body
+    # Page renders in Spanish by default
+    assert_match "Comunidad Multicultural", response.body
+    assert_match "Desde el Corazón", response.body
+    assert_match "Para Todas las Edades", response.body
   end
 
   test "landing page shows both courses" do
     get root_url
     assert_response :success
 
-    assert_match I18n.t("website.courses.piano.title"), response.body
-    assert_match I18n.t("website.courses.initiation.title"), response.body
+    assert_match "Clases de Piano", response.body
+    assert_match "Iniciación Musical", response.body
   end
 
   test "landing page shows enrollment form" do

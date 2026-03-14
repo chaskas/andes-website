@@ -1,15 +1,16 @@
 module Website
   class ApplicationController < ::ApplicationController
     skip_before_action :authenticate_user! unless Rails.env.test?
-    before_action :set_locale
+    around_action :switch_locale
 
     private
 
-    def set_locale
+    def switch_locale(&action)
       if params[:locale].present? && %w[es en de].include?(params[:locale])
         session[:locale] = params[:locale]
       end
-      I18n.locale = session[:locale] || :es
+      locale = session[:locale] || :es
+      I18n.with_locale(locale, &action)
     end
   end
 end
