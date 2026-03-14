@@ -52,7 +52,7 @@
       <div class="col-lg-6 reveal">
         <div class="about-card">
           <div class="about-card__icon" style="background: var(--andes-sage-light);">
-            <i class="bi bi-mountains" style="color: var(--andes-sage);"></i>
+            <i class="bi bi-eye" style="color: var(--andes-sage);"></i>
           </div>
           <h3 class="about-card__title"><%= t('website.about.vision.title') %></h3>
           <ul class="list-unstyled mb-0">
@@ -67,16 +67,77 @@
       </div>
     </div>
 
-    <%# Photo gallery %>
-    <div class="about-gallery reveal mb-5">
-      <div class="about-gallery__item about-gallery__item--wide">
-        <%= image_tag "website/landscape1.webp", alt: "Andes Academy", class: "about-gallery__img", loading: "lazy" %>
+    <%# Photo carousel %>
+    <% gallery_images = [
+      { src: "website/landscape1.webp", alt: "Andes Academy" },
+      { src: "website/square1.webp", alt: "Andes Academy" },
+      { src: "website/square2.webp", alt: "Andes Academy" }
+    ] %>
+
+    <%# Desktop: grid of 3 per slide %>
+    <div class="about-carousel about-carousel--desktop reveal mb-5 d-none d-md-block">
+      <div id="aboutCarouselDesktop" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+        <% slides = gallery_images.each_slice(3).to_a %>
+        <% if slides.size > 1 %>
+          <div class="carousel-indicators">
+            <% slides.each_with_index do |_group, i| %>
+              <button type="button" data-bs-target="#aboutCarouselDesktop" data-bs-slide-to="<%= i %>"
+                class="<%= 'active' if i == 0 %>" <%= 'aria-current="true"' if i == 0 %>
+                aria-label="Slide <%= i + 1 %>"></button>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="carousel-inner">
+          <% slides.each_with_index do |group, i| %>
+            <div class="carousel-item<%= ' active' if i == 0 %>">
+              <div class="about-carousel__grid">
+                <% group.each do |img| %>
+                  <div class="about-carousel__grid-item">
+                    <%= image_tag img[:src], alt: img[:alt], class: "about-carousel__img", loading: "lazy" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% if slides.size > 1 %>
+          <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarouselDesktop" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#aboutCarouselDesktop" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        <% end %>
       </div>
-      <div class="about-gallery__item about-gallery__item--square">
-        <%= image_tag "website/square1.webp", alt: "Andes Academy", class: "about-gallery__img", loading: "lazy" %>
-      </div>
-      <div class="about-gallery__item about-gallery__item--square">
-        <%= image_tag "website/square2.webp", alt: "Andes Academy", class: "about-gallery__img", loading: "lazy" %>
+    </div>
+
+    <%# Mobile: 1 image per slide %>
+    <div class="about-carousel about-carousel--mobile reveal mb-5 d-md-none">
+      <div id="aboutCarouselMobile" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+        <div class="carousel-indicators">
+          <% gallery_images.each_with_index do |_img, i| %>
+            <button type="button" data-bs-target="#aboutCarouselMobile" data-bs-slide-to="<%= i %>"
+              class="<%= 'active' if i == 0 %>" <%= 'aria-current="true"' if i == 0 %>
+              aria-label="Slide <%= i + 1 %>"></button>
+          <% end %>
+        </div>
+        <div class="carousel-inner">
+          <% gallery_images.each_with_index do |img, i| %>
+            <div class="carousel-item<%= ' active' if i == 0 %>">
+              <%= image_tag img[:src], alt: img[:alt], class: "about-carousel__img", loading: "lazy" %>
+            </div>
+          <% end %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#aboutCarouselMobile" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#aboutCarouselMobile" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
 
