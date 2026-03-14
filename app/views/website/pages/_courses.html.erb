@@ -42,16 +42,20 @@
               <p class="course-card__desc"><%= t('website.courses.piano.description_2') %></p>
             </div>
 
-            <h5 class="d-flex align-items-center mt-4 mb-3" style="font-family: 'Cormorant', serif; font-weight: 600;">
-              <i class="bi bi-currency-euro me-2" style="color: var(--andes-terra);"></i>
+            <h6 class="d-flex align-items-center mt-4 mb-3" style="font-family: 'Cormorant', serif; font-weight: 600;">
+              <i class="bi bi-currency-euro me-2" style="color: var(--andes-terra); font-size: 0.95rem;"></i>
               <%= t('website.courses.pricing_label') %>
-            </h5>
+            </h6>
 
             <div class="pricing-grid">
               <% t('website.courses.piano.prices').each do |price| %>
                 <div class="price-item">
                   <div class="price-item__duration"><%= price[:duration] %></div>
-                  <div class="price-item__price"><%= price[:price] %></div>
+                  <div class="price-item__price">
+                    <% amount, unit = price[:price].split(' ', 2) %>
+                    <span class="price-item__number"><%= amount %></span>
+                    <span class="price-item__unit"><%= unit %></span>
+                  </div>
                 </div>
               <% end %>
             </div>
@@ -107,13 +111,17 @@
               <p class="course-card__desc"><%= t('website.courses.initiation.description_2') %></p>
             </div>
 
-            <h5 class="d-flex align-items-center mt-4 mb-3" style="font-family: 'Cormorant', serif; font-weight: 600;">
-              <i class="bi bi-currency-euro me-2" style="color: var(--andes-gold);"></i>
+            <h6 class="d-flex align-items-center mt-4 mb-3" style="font-family: 'Cormorant', serif; font-weight: 600;">
+              <i class="bi bi-currency-euro me-2" style="color: var(--andes-gold); font-size: 0.95rem;"></i>
               <%= t('website.courses.pricing_label') %>
-            </h5>
+            </h6>
 
             <div class="price-single">
-              <div class="price-single__amount"><%= t('website.courses.initiation.price') %></div>
+              <div class="price-single__amount">
+                <% amount, unit = t('website.courses.initiation.price').split(' ', 2) %>
+                <span class="price-single__number"><%= amount %></span>
+                <span class="price-single__unit"><%= unit %></span>
+              </div>
             </div>
 
             <p class="course-card__desc"><%= t('website.courses.initiation.description_3') %></p>

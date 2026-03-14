@@ -650,14 +650,24 @@ section {
 
   &__price {
     font-family: 'Cormorant', serif;
-    font-size: 1.3rem;
     font-weight: 700;
     color: var(--andes-terra);
+  }
+
+  &__number {
+    font-size: 1.3rem;
+  }
+
+  &__unit {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(42, 37, 32, 0.5);
   }
 }
 
 .price-single {
-  background: var(--andes-terra-light);
+  background: #fff;
+  border: 1px solid var(--andes-sand);
   border-radius: 16px;
   padding: 1.5rem;
   text-align: center;
@@ -665,9 +675,18 @@ section {
 
   &__amount {
     font-family: 'Cormorant', serif;
-    font-size: 2rem;
     font-weight: 700;
     color: var(--andes-terra);
+  }
+
+  &__number {
+    font-size: 2rem;
+  }
+
+  &__unit {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(42, 37, 32, 0.5);
   }
 }
 
