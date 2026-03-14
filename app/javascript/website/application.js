@@ -26,3 +26,14 @@ if (revealElements.length > 0) {
 
   revealElements.forEach(el => observer.observe(el))
 }
+
+// Bootstrap form validation
+document.querySelectorAll('.needs-validation').forEach(form => {
+  form.addEventListener('submit', event => {
+    if (!form.checkValidity()) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+    form.classList.add('was-validated')
+  })
+})

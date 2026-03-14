@@ -33,7 +33,8 @@
           <%= form_with model: @enrollment || Website::Enrollment.new,
                         url: website.enrollments_path,
                         local: true,
-                        class: "form-andes" do |f| %>
+                        html: { novalidate: true },
+                        class: "form-andes needs-validation" do |f| %>
 
             <% if @enrollment&.errors&.any? %>
               <div class="alert alert-danger">

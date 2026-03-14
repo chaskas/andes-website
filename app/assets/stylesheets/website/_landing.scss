@@ -28,6 +28,7 @@ body {
   font-family: 'Jost', sans-serif;
   color: var(--andes-ink);
   background-color: var(--andes-cream);
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -128,11 +129,31 @@ section {
     transition: color 0.3s ease;
   }
 
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+    padding: 0.4rem 0.6rem;
+  }
+
+  .navbar-collapse.show,
+  .navbar-collapse.collapsing {
+    background-color: var(--andes-night);
+    border-radius: 0 0 16px 16px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+
   &.navbar-scrolled {
     background-color: var(--andes-night) !important;
     padding: 0.5rem 0;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    .navbar-collapse.show,
+    .navbar-collapse.collapsing {
+      margin-top: 0;
+      border-radius: 0;
+      background-color: transparent;
+    }
   }
 }
 
@@ -649,6 +670,23 @@ section {
     &:focus {
       border-color: var(--andes-terra);
       box-shadow: 0 0 0 3px rgba(196, 93, 62, 0.1);
+    }
+  }
+
+  // Validation states
+  &.was-validated {
+    .form-control:invalid,
+    .form-check-input:invalid {
+      border-color: #dc3545;
+    }
+
+    .form-control:valid,
+    .form-check-input:valid {
+      border-color: var(--andes-sage);
+    }
+
+    .invalid-feedback {
+      font-size: 0.85rem;
     }
   }
 }
