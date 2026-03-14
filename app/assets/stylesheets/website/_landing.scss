@@ -1,94 +1,781 @@
-// Orange/Amber color scheme for Andes Academy landing page
+// ============================================
+// ANDES ACADEMY — LANDING PAGE STYLES
+// Aesthetic: Warm Earth & Musical Flow
+// ============================================
 
-$andes-orange: #e67e22;
-$andes-amber: #f59e0b;
-$andes-orange-light: #fff7ed;
-$andes-amber-light: #fffbeb;
-
-// Hero section
-.hero-section {
-  min-height: 100vh;
-  padding-top: 80px; // Account for fixed navbar
-  background: linear-gradient(135deg, $andes-orange-light, $andes-amber-light, #fefce8);
+// --- Custom Properties ---
+:root {
+  --andes-night: #1e2d2f;
+  --andes-cream: #faf6ef;
+  --andes-terra: #c45d3e;
+  --andes-gold: #c9963a;
+  --andes-sage: #5a7a5e;
+  --andes-sand: #ede4d4;
+  --andes-ink: #2a2520;
+  --andes-rose: #d4836b;
+  --andes-terra-light: #faf0ec;
+  --andes-gold-light: #fdf6e8;
+  --andes-sage-light: #eef3ee;
 }
 
-// Smooth scrolling
+// --- Base ---
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 76px; // Navbar height offset for anchor links
+  scroll-padding-top: 76px;
 }
 
-// Fixed navbar spacing
 body {
-  padding-top: 0;
+  font-family: 'Jost', sans-serif;
+  color: var(--andes-ink);
+  background-color: var(--andes-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-// Highlight cards hover effect
-.highlight-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  }
-}
-
-// Section spacing
 section {
   scroll-margin-top: 76px;
 }
 
-// Override Bootstrap warning color to match orange theme
-.btn-warning {
-  background-color: $andes-orange;
-  border-color: $andes-orange;
+// --- Typography ---
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--andes-terra);
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.section-title {
+  font-family: 'Cormorant', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  color: var(--andes-ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+// --- Buttons ---
+.btn-andes {
+  background-color: var(--andes-terra);
+  border: 2px solid var(--andes-terra);
   color: #fff;
+  border-radius: 100px;
+  padding: 0.75rem 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
 
   &:hover, &:focus {
-    background-color: darken($andes-orange, 8%);
-    border-color: darken($andes-orange, 8%);
+    background-color: darken(#c45d3e, 8%);
+    border-color: darken(#c45d3e, 8%);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(196, 93, 62, 0.3);
   }
 }
 
-.btn-outline-warning {
-  color: $andes-orange;
-  border-color: $andes-orange;
+.btn-andes-outline {
+  background-color: transparent;
+  border: 2px solid var(--andes-terra);
+  color: var(--andes-terra);
+  border-radius: 100px;
+  padding: 0.75rem 2rem;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
 
   &:hover, &:focus {
-    background-color: $andes-orange;
-    border-color: $andes-orange;
+    background-color: var(--andes-terra);
     color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(196, 93, 62, 0.3);
   }
 }
 
-.text-warning {
-  color: $andes-orange !important;
+// --- Navbar ---
+.navbar-andes {
+  background-color: transparent !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1rem 0;
+  border-bottom: 1px solid transparent;
+
+  .navbar-brand {
+    font-family: 'Cormorant', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    color: #fff !important;
+  }
+
+  .brand-icon {
+    color: var(--andes-gold);
+    font-size: 1.5rem;
+  }
+
+  .nav-link {
+    font-weight: 400;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.3s ease;
+  }
+
+  &.navbar-scrolled {
+    background-color: var(--andes-night) !important;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
 }
 
-.bg-warning {
-  background-color: $andes-orange !important;
+// --- Hero ---
+.hero-andes {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+    160deg,
+    #8b3a25 0%,
+    #b55838 25%,
+    #c97842 50%,
+    #d4a050 75%,
+    #dfc070 100%
+  );
+  overflow: hidden;
+
+  &__content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 60px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 100px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(2.75rem, 8vw, 7rem);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    text-shadow: 0 2px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  &__tagline {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(1.15rem, 3vw, 1.75rem);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+  }
+
+  &__desc {
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  &__ctas {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .btn-andes {
+      background-color: #fff;
+      border-color: #fff;
+      color: var(--andes-terra);
+
+      &:hover {
+        background-color: var(--andes-cream);
+        border-color: var(--andes-cream);
+        color: var(--andes-terra);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    .btn-andes-outline {
+      border-color: rgba(255, 255, 255, 0.6);
+      color: #fff;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: #fff;
+        color: #fff;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  &__mountains {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+    line-height: 0;
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
 }
 
-.border-warning {
-  border-color: $andes-orange !important;
+// --- Highlights ---
+.highlights-row {
+  margin-top: -50px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 5rem;
 }
 
-.badge.bg-warning {
-  background-color: $andes-amber !important;
+.highlight-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  &__icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+
+    i {
+      font-size: 1.6rem;
+    }
+
+    &--terra {
+      background: var(--andes-terra-light);
+      i { color: var(--andes-terra); }
+    }
+
+    &--gold {
+      background: var(--andes-gold-light);
+      i { color: var(--andes-gold); }
+    }
+
+    &--sage {
+      background: var(--andes-sage-light);
+      i { color: var(--andes-sage); }
+    }
+  }
+
+  &__title {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    color: var(--andes-ink);
+    margin-bottom: 0.75rem;
+  }
+
+  &__text {
+    font-size: 0.95rem;
+    color: rgba(42, 37, 32, 0.65);
+    line-height: 1.6;
+    margin-bottom: 0;
+  }
 }
 
-.table-warning {
-  --bs-table-bg: $andes-amber-light;
-  --bs-table-border-color: #fde68a;
+// --- About ---
+.about-section {
+  background-color: var(--andes-cream);
+  padding-top: 2rem;
+  padding-bottom: 5rem;
 }
 
-// Navbar brand styling
-.navbar-brand .bi-mountains {
+.about-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  height: 100%;
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    background: var(--andes-terra-light);
+
+    i {
+      font-size: 1.4rem;
+      color: var(--andes-terra);
+    }
+  }
+
+  &__title {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--andes-ink);
+    margin-bottom: 1rem;
+  }
+
+  p, li {
+    color: rgba(42, 37, 32, 0.7);
+    line-height: 1.7;
+  }
+}
+
+.value-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--andes-sand);
+  border-radius: 100px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--andes-ink);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: var(--andes-terra-light);
+    border-color: var(--andes-terra);
+    color: var(--andes-terra);
+    transform: translateY(-2px);
+  }
+}
+
+.audience-card {
+  background: linear-gradient(135deg, var(--andes-terra-light), var(--andes-gold-light));
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid rgba(196, 93, 62, 0.1);
+  text-align: center;
+
+  &__title {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--andes-ink);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: rgba(42, 37, 32, 0.7);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+// --- Courses ---
+.courses-section {
+  background-color: #fff;
+  padding: 5rem 0;
+}
+
+.course-card {
+  background: var(--andes-cream);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--andes-sand);
+  height: 100%;
+  transition: all 0.4s ease;
+
+  &:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  &__header {
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 1px solid var(--andes-sand);
+
+    &--piano {
+      background: linear-gradient(135deg, var(--andes-terra-light), rgba(255, 255, 255, 0.5));
+    }
+
+    &--initiation {
+      background: linear-gradient(135deg, var(--andes-gold-light), rgba(255, 255, 255, 0.5));
+    }
+  }
+
+  &__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+
+    i {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    &--terra {
+      background: var(--andes-terra);
+    }
+
+    &--gold {
+      background: var(--andes-gold);
+    }
+  }
+
+  &__title {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--andes-ink);
+    margin-bottom: 0;
+  }
+
+  &__body {
+    padding: 2rem;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: rgba(42, 37, 32, 0.7);
+
+    i {
+      color: var(--andes-terra);
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    strong {
+      color: var(--andes-ink);
+      font-weight: 600;
+    }
+  }
+
+  &__desc {
+    color: rgba(42, 37, 32, 0.7);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+}
+
+// Pricing
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.price-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid var(--andes-sand);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--andes-terra);
+    box-shadow: 0 4px 16px rgba(196, 93, 62, 0.1);
+  }
+
+  &__duration {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(42, 37, 32, 0.5);
+    margin-bottom: 0.25rem;
+  }
+
+  &__price {
+    font-family: 'Cormorant', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--andes-terra);
+  }
+}
+
+.price-single {
+  background: var(--andes-terra-light);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  margin: 1.5rem 0;
+
+  &__amount {
+    font-family: 'Cormorant', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--andes-terra);
+  }
+}
+
+.course-info {
+  font-size: 0.85rem;
+  color: rgba(42, 37, 32, 0.55);
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  i {
+    margin-top: 0.15rem;
+    color: var(--andes-sage);
+  }
+}
+
+.course-goal {
+  background: linear-gradient(135deg, var(--andes-sage-light), rgba(255, 255, 255, 0.5));
+  border-left: 3px solid var(--andes-sage);
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  color: rgba(42, 37, 32, 0.75);
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+// --- Enrollment ---
+.enrollment-section {
+  background: var(--andes-sand);
+  padding: 5rem 0;
+}
+
+.enrollment-desc {
+  color: rgba(42, 37, 32, 0.7);
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.enrollment-welcome {
+  font-family: 'Cormorant', serif;
   font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--andes-terra);
+  margin-top: 1.5rem;
 }
 
-// Footer
+.enrollment-form-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+// Form styling
+.form-andes {
+  .form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--andes-ink);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-control {
+    border: 1.5px solid var(--andes-sand);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: var(--andes-cream);
+
+    &:focus {
+      border-color: var(--andes-terra);
+      box-shadow: 0 0 0 3px rgba(196, 93, 62, 0.1);
+      background-color: #fff;
+    }
+
+    &::placeholder {
+      color: rgba(42, 37, 32, 0.35);
+    }
+  }
+
+  .form-check-input {
+    border-color: var(--andes-sand);
+
+    &:checked {
+      background-color: var(--andes-terra);
+      border-color: var(--andes-terra);
+    }
+
+    &:focus {
+      border-color: var(--andes-terra);
+      box-shadow: 0 0 0 3px rgba(196, 93, 62, 0.1);
+    }
+  }
+}
+
+.btn-submit {
+  background: var(--andes-terra);
+  border: none;
+  border-radius: 14px;
+  padding: 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: darken(#c45d3e, 8%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(196, 93, 62, 0.3);
+  }
+}
+
+// --- Footer ---
+.footer-andes {
+  background: var(--andes-night);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 4rem 0 2rem;
+  margin-top: 0 !important;
+
+  &__brand {
+    font-family: 'Cormorant', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+
+    .brand-icon {
+      color: var(--andes-gold);
+      font-size: 1.5rem;
+    }
+  }
+
+  &__heading {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--andes-gold);
+    margin-bottom: 1rem;
+  }
+
+  &__divider {
+    border-color: rgba(255, 255, 255, 0.08);
+    margin: 2.5rem 0;
+  }
+
+  &__copy {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.35);
+  }
+}
+
+// --- Scroll Reveal ---
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-children {
+  .reveal {
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{($i - 1) * 0.12}s;
+      }
+    }
+  }
+}
+
+// --- Responsive ---
+@media (max-width: 991px) {
+  .highlights-row {
+    margin-top: -30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-andes {
+    &__content {
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
+
+    &__desc {
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+  }
+
+  .highlight-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .course-card {
+    &__body, &__header {
+      padding: 1.5rem;
+    }
+  }
+
+  .enrollment-form-card {
+    padding: 1.5rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+}
+
+// --- Override Bootstrap defaults ---
+.text-muted {
+  color: rgba(42, 37, 32, 0.55) !important;
+}
+
 footer {
   margin-top: 0 !important;
 }

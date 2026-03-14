@@ -1,52 +1,31 @@
-<section id="inicio" class="hero-section d-flex align-items-center">
-  <div class="container text-center py-5">
-    <div class="mb-4">
-      <i class="bi bi-mountains display-1 text-warning"></i>
-    </div>
+<section id="inicio" class="hero-andes">
+  <div class="hero-andes__content">
+    <div class="container text-center">
+      <span class="hero-andes__badge">
+        <i class="bi bi-music-note"></i>
+        <%= t('website.footer.location') %>
+      </span>
 
-    <h1 class="display-3 fw-bold text-dark mb-2"><%= t('website.hero.title') %></h1>
-    <p class="lead text-warning fw-semibold mb-4"><%= t('website.hero.tagline') %></p>
-    <p class="mx-auto mb-5 text-muted" style="max-width: 700px;">
-      <%= t('website.hero.description') %>
-    </p>
+      <h1 class="hero-andes__title"><%= t('website.hero.title') %></h1>
+      <p class="hero-andes__tagline"><%= t('website.hero.tagline') %></p>
+      <p class="hero-andes__desc"><%= t('website.hero.description') %></p>
 
-    <div class="d-flex justify-content-center gap-3 mb-5 flex-wrap">
-      <a href="#cursos" class="btn btn-warning btn-lg px-4">
-        <i class="bi bi-music-note-beamed me-2"></i><%= t('website.hero.cta_classes') %>
-      </a>
-      <a href="#contacto" class="btn btn-outline-warning btn-lg px-4">
-        <i class="bi bi-envelope me-2"></i><%= t('website.hero.cta_contact') %>
-      </a>
-    </div>
-
-    <div class="row g-4 mt-4">
-      <div class="col-md-4">
-        <div class="card h-100 border-warning highlight-card">
-          <div class="card-body text-center p-4">
-            <i class="bi bi-people display-5 text-warning mb-3"></i>
-            <h5 class="card-title"><%= t('website.hero.highlights.community.title') %></h5>
-            <p class="card-text text-muted"><%= t('website.hero.highlights.community.description') %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 border-warning highlight-card">
-          <div class="card-body text-center p-4">
-            <i class="bi bi-heart display-5 text-warning mb-3"></i>
-            <h5 class="card-title"><%= t('website.hero.highlights.heart.title') %></h5>
-            <p class="card-text text-muted"><%= t('website.hero.highlights.heart.description') %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100 border-warning highlight-card">
-          <div class="card-body text-center p-4">
-            <i class="bi bi-stars display-5 text-warning mb-3"></i>
-            <h5 class="card-title"><%= t('website.hero.highlights.ages.title') %></h5>
-            <p class="card-text text-muted"><%= t('website.hero.highlights.ages.description') %></p>
-          </div>
-        </div>
+      <div class="hero-andes__ctas">
+        <a href="#cursos" class="btn btn-andes btn-lg">
+          <i class="bi bi-music-note-beamed me-2"></i><%= t('website.hero.cta_classes') %>
+        </a>
+        <a href="#contacto" class="btn btn-andes-outline btn-lg">
+          <i class="bi bi-envelope me-2"></i><%= t('website.hero.cta_contact') %>
+        </a>
       </div>
     </div>
+  </div>
+
+  <div class="hero-andes__mountains">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220" preserveAspectRatio="none">
+      <path d="M0,220 L0,140 Q180,50 360,110 Q540,170 720,70 Q900,0 1080,90 Q1260,150 1440,80 L1440,220 Z" fill="rgba(42,37,32,0.06)" />
+      <path d="M0,220 L0,160 Q200,90 400,140 Q600,190 800,110 Q1000,40 1200,120 Q1350,170 1440,130 L1440,220 Z" fill="rgba(42,37,32,0.1)" />
+      <path d="M0,220 L0,180 Q180,150 400,170 Q620,195 800,160 Q1000,130 1200,165 Q1350,185 1440,170 L1440,220 Z" fill="#faf6ef" />
+    </svg>
   </div>
 </section>

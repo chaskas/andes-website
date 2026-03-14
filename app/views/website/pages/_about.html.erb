@@ -1,72 +1,91 @@
-<section id="sobre" class="py-5 bg-light">
+<section id="sobre" class="about-section">
   <div class="container">
-    <h2 class="text-center display-5 fw-bold mb-5"><%= t('website.about.title') %></h2>
-
-    <%# Mission %>
-    <div class="row mb-5">
-      <div class="col-lg-8 mx-auto">
-        <div class="card border-0 shadow-sm">
-          <div class="card-body p-4">
-            <h3 class="d-flex align-items-center mb-3">
-              <i class="bi bi-stars text-warning me-2"></i>
-              <%= t('website.about.mission.title') %>
-            </h3>
-            <p><%= t('website.about.mission.p1') %></p>
-            <p class="mb-0"><%= t('website.about.mission.p2') %></p>
+    <%# Highlight cards overlapping from hero %>
+    <div class="row g-4 highlights-row stagger-children">
+      <div class="col-md-4 reveal">
+        <div class="highlight-card">
+          <div class="highlight-card__icon highlight-card__icon--terra">
+            <i class="bi bi-people"></i>
           </div>
+          <h4 class="highlight-card__title"><%= t('website.hero.highlights.community.title') %></h4>
+          <p class="highlight-card__text"><%= t('website.hero.highlights.community.description') %></p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="highlight-card">
+          <div class="highlight-card__icon highlight-card__icon--gold">
+            <i class="bi bi-heart"></i>
+          </div>
+          <h4 class="highlight-card__title"><%= t('website.hero.highlights.heart.title') %></h4>
+          <p class="highlight-card__text"><%= t('website.hero.highlights.heart.description') %></p>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="highlight-card">
+          <div class="highlight-card__icon highlight-card__icon--sage">
+            <i class="bi bi-stars"></i>
+          </div>
+          <h4 class="highlight-card__title"><%= t('website.hero.highlights.ages.title') %></h4>
+          <p class="highlight-card__text"><%= t('website.hero.highlights.ages.description') %></p>
         </div>
       </div>
     </div>
 
-    <%# Vision %>
-    <div class="row mb-5">
-      <div class="col-lg-8 mx-auto">
-        <div class="card border-0 shadow-sm">
-          <div class="card-body p-4">
-            <h3 class="d-flex align-items-center mb-3">
-              <i class="bi bi-mountains text-warning me-2"></i>
-              <%= t('website.about.vision.title') %>
-            </h3>
-            <ul class="list-unstyled mb-0">
-              <% t('website.about.vision.items').each do |item| %>
-                <li class="d-flex align-items-start mb-3">
-                  <i class="bi bi-check-circle-fill text-warning me-2 mt-1"></i>
-                  <span><%= item %></span>
-                </li>
-              <% end %>
-            </ul>
+    <%# Section heading %>
+    <div class="text-center mb-5 reveal">
+      <span class="section-label"><%= t('website.nav.about') %></span>
+      <h2 class="section-title"><%= t('website.about.title') %></h2>
+    </div>
+
+    <%# Mission & Vision side by side %>
+    <div class="row g-4 mb-5">
+      <div class="col-lg-6 reveal">
+        <div class="about-card">
+          <div class="about-card__icon">
+            <i class="bi bi-stars"></i>
           </div>
+          <h3 class="about-card__title"><%= t('website.about.mission.title') %></h3>
+          <p><%= t('website.about.mission.p1') %></p>
+          <p class="mb-0"><%= t('website.about.mission.p2') %></p>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal">
+        <div class="about-card">
+          <div class="about-card__icon" style="background: var(--andes-sage-light);">
+            <i class="bi bi-mountains" style="color: var(--andes-sage);"></i>
+          </div>
+          <h3 class="about-card__title"><%= t('website.about.vision.title') %></h3>
+          <ul class="list-unstyled mb-0">
+            <% t('website.about.vision.items').each do |item| %>
+              <li class="d-flex align-items-start mb-3">
+                <i class="bi bi-check2 me-2 mt-1" style="color: var(--andes-sage); font-size: 1.1rem;"></i>
+                <span><%= item %></span>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </div>
     </div>
 
     <%# Values %>
-    <div class="row mb-5">
-      <div class="col-lg-8 mx-auto text-center">
-        <h3 class="mb-2"><%= t('website.about.values.title') %></h3>
-        <p class="text-muted mb-4"><%= t('website.about.values.subtitle') %></p>
-        <div class="row g-3">
-          <% t('website.about.values.items').each do |value| %>
-            <div class="col-6 col-md-3">
-              <div class="badge bg-warning text-dark fs-6 w-100 py-2"><%= value %></div>
-            </div>
-          <% end %>
-        </div>
+    <div class="text-center mb-5 reveal">
+      <h3 class="about-card__title mb-2"><%= t('website.about.values.title') %></h3>
+      <p class="text-muted mb-4"><%= t('website.about.values.subtitle') %></p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <% t('website.about.values.items').each do |value| %>
+          <span class="value-pill"><%= value %></span>
+        <% end %>
       </div>
     </div>
 
     <%# Audience %>
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        <div class="card border-warning bg-warning bg-opacity-10">
-          <div class="card-body p-4 text-center">
-            <h3 class="d-flex align-items-center justify-content-center mb-3">
-              <i class="bi bi-people-fill text-warning me-2"></i>
-              <%= t('website.about.audience.title') %>
-            </h3>
-            <p class="mb-0"><%= t('website.about.audience.description') %></p>
-          </div>
-        </div>
+    <div class="reveal">
+      <div class="audience-card">
+        <h3 class="audience-card__title">
+          <i class="bi bi-people-fill me-2" style="color: var(--andes-terra);"></i>
+          <%= t('website.about.audience.title') %>
+        </h3>
+        <p class="mb-0"><%= t('website.about.audience.description') %></p>
       </div>
     </div>
   </div>

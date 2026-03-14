@@ -1,8 +1,8 @@
-<nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark navbar-andes fixed-top">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#inicio">
-      <i class="bi bi-mountains me-2 text-warning"></i>
-      <strong>Andes Academy</strong>
+      <i class="bi bi-mountains me-2 brand-icon"></i>
+      <span>Andes Academy</span>
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -11,7 +11,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav ms-auto me-3">
         <li class="nav-item">
           <a class="nav-link" href="#inicio"><%= t('website.nav.home') %></a>
         </li>
@@ -27,7 +27,7 @@
       </ul>
 
       <div class="dropdown">
-        <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button"
+        <button class="btn btn-sm btn-outline-light dropdown-toggle" type="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-translate me-1"></i>
           <%= I18n.locale.to_s.upcase %>

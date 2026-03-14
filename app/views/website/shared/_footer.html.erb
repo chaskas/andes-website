@@ -1,32 +1,32 @@
-<footer class="bg-dark text-light py-5 mt-5">
+<footer class="footer-andes">
   <div class="container">
-    <div class="row">
+    <div class="row g-4">
       <div class="col-md-4 mb-4 mb-md-0">
-        <h5 class="d-flex align-items-center mb-3">
-          <i class="bi bi-mountains me-2 text-warning"></i>
-          Andes Academy
-        </h5>
-        <p class="text-secondary"><%= t('website.hero.tagline') %></p>
+        <div class="footer-andes__brand d-flex align-items-center mb-3">
+          <i class="bi bi-mountains me-2 brand-icon"></i>
+          <span>Andes Academy</span>
+        </div>
+        <p style="color: rgba(255,255,255,0.45);"><%= t('website.hero.tagline') %></p>
       </div>
 
       <div class="col-md-4 mb-4 mb-md-0">
-        <h6 class="text-warning mb-3"><%= t('website.footer.contact') %></h6>
-        <p class="text-secondary mb-1">
-          <i class="bi bi-geo-alt me-2"></i><%= t('website.footer.location') %>
+        <h6 class="footer-andes__heading"><%= t('website.footer.contact') %></h6>
+        <p class="mb-2">
+          <i class="bi bi-geo-alt me-2" style="color: var(--andes-gold);"></i><%= t('website.footer.location') %>
         </p>
-        <p class="text-secondary mb-1"><%= t('website.footer.founded') %></p>
+        <p class="mb-0"><%= t('website.footer.founded') %></p>
       </div>
 
       <div class="col-md-4">
-        <h6 class="text-warning mb-3"><%= t('website.footer.founder_label') %></h6>
-        <p class="text-light mb-1"><%= t('website.footer.founder_name') %></p>
-        <p class="text-secondary"><%= t('website.footer.founder_title') %></p>
+        <h6 class="footer-andes__heading"><%= t('website.footer.founder_label') %></h6>
+        <p class="mb-1" style="color: #fff;"><%= t('website.footer.founder_name') %></p>
+        <p class="mb-0"><%= t('website.footer.founder_title') %></p>
       </div>
     </div>
 
-    <hr class="border-secondary my-4">
+    <hr class="footer-andes__divider">
 
-    <div class="text-center text-secondary">
+    <div class="text-center footer-andes__copy">
       <small>&copy; <%= Date.current.year %> Andes Academy. <%= t('website.footer.rights') %></small>
     </div>
   </div>
