@@ -6,10 +6,10 @@ module Website
     private
 
     def set_locale
-      if params[:locale].present? && I18n.available_locales.map(&:to_s).include?(params[:locale])
+      if params[:locale].present? && %w[es en de].include?(params[:locale])
         session[:locale] = params[:locale]
       end
-      I18n.locale = session[:locale] || I18n.default_locale
+      I18n.locale = session[:locale] || :es
     end
   end
 end
