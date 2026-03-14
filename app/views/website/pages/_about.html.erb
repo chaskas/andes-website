@@ -67,6 +67,19 @@
       </div>
     </div>
 
+    <%# Photo gallery %>
+    <div class="about-gallery reveal mb-5">
+      <div class="about-gallery__item about-gallery__item--wide">
+        <%= image_tag "website/landscape1.webp", alt: "Andes Academy", class: "about-gallery__img", loading: "lazy" %>
+      </div>
+      <div class="about-gallery__item about-gallery__item--square">
+        <%= image_tag "website/square1.webp", alt: "Andes Academy", class: "about-gallery__img", loading: "lazy" %>
+      </div>
+      <div class="about-gallery__item about-gallery__item--square">
+        <%= image_tag "website/square2.webp", alt: "Andes Academy", class: "about-gallery__img", loading: "lazy" %>
+      </div>
+    </div>
+
     <%# Values %>
     <div class="text-center mb-5 reveal">
       <h3 class="about-card__title mb-2"><%= t('website.about.values.title') %></h3>
