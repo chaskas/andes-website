@@ -96,7 +96,7 @@ en:
           - "Maximum 7 children per group (with companion)"
           - "Classes in Spanish or German"
     enrollment:
-      title: "Enrollment"
+      title: "Book Your Trial Class"
       p1: "Would you like your child to begin their musical journey with us? Or perhaps you yourself are looking for piano lessons in a respectful and creative environment."
       p2: "Complete the form and we will contact you to arrange a"
       free_trial: "free trial class"
@@ -112,7 +112,7 @@ en:
         class_type: "Class type:"
         availability: "Schedule availability:"
         comments: "Additional comments or questions:"
-        submit: "Submit Enrollment"
+        submit: "Book Trial Class"
         submitting: "Submitting..."
         placeholders:
           student_name: "E.g.: Maria Gonzalez"

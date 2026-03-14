@@ -96,7 +96,7 @@ de:
           - "Maximal 7 Kinder pro Gruppe (mit Begleitperson)"
           - "Unterricht auf Spanisch oder Deutsch"
     enrollment:
-      title: "Anmeldung"
+      title: "Buchen Sie Ihre Probestunde"
       p1: "Möchten Sie, dass Ihr Kind seinen musikalischen Weg mit uns beginnt? Oder suchen Sie vielleicht selbst Klavierunterricht in einer respektvollen und kreativen Umgebung."
       p2: "Füllen Sie das Formular aus und wir werden uns mit Ihnen in Verbindung setzen, um eine"
       free_trial: "kostenlose Probestunde"
@@ -112,7 +112,7 @@ de:
         class_type: "Art des Unterrichts:"
         availability: "Zeitliche Verfügbarkeit:"
         comments: "Zusätzliche Kommentare oder Fragen:"
-        submit: "Anmeldung absenden"
+        submit: "Probestunde buchen"
         submitting: "Wird gesendet..."
         placeholders:
           student_name: "Z.B.: Maria González"
