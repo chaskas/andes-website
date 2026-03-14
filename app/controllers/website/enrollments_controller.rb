@@ -4,6 +4,7 @@ module Website
       @enrollment = Enrollment.new(enrollment_params)
 
       if @enrollment.save
+        EnrollmentMailer.notify(@enrollment).deliver_now
         redirect_to root_path(anchor: "contacto"), notice: t("website.enrollment.success")
       else
         redirect_to root_path(anchor: "contacto"), alert: t("website.enrollment.error")
