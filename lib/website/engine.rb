@@ -16,7 +16,7 @@ module Website
 
     initializer "website.i18n" do
       config.i18n.load_path += Dir[root.join("config/locales/**/*.yml")]
-      config.i18n.available_locales += %i[es de]
+      config.i18n.available_locales = %i[es en de]
     end
   end
 end
