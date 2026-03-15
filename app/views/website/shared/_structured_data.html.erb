@@ -1,0 +1,52 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Andes Academy",
+  "url": "<%= request.base_url %>",
+  "logo": "<%= image_url('website/logo.png') %>",
+  "description": "<%= t('website.seo.og_description') %>"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicSchool",
+  "name": "Andes Academy",
+  "url": "<%= request.base_url %>",
+  "description": "<%= t('website.seo.og_description') %>",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Berlin",
+    "addressCountry": "DE"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "<%= t('website.courses.piano.title') %>",
+    "description": "<%= t('website.courses.piano.description_1') %>",
+    "provider": {
+      "@type": "Organization",
+      "name": "Andes Academy",
+      "url": "<%= request.base_url %>"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "<%= t('website.courses.initiation.title') %>",
+    "description": "<%= t('website.courses.initiation.description_1') %>",
+    "provider": {
+      "@type": "Organization",
+      "name": "Andes Academy",
+      "url": "<%= request.base_url %>"
+    }
+  }
+]
+</script>

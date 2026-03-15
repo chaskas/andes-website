@@ -1,5 +1,8 @@
 en:
   website:
+    seo:
+      og_title: "Andes Academy - Music School in Berlin"
+      og_description: "Multicultural music school in the heart of Berlin. Piano lessons and musical initiation for all ages, in Spanish, German and English."
     nav:
       home: "Home"
       about: "About Us"

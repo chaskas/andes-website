@@ -17,12 +17,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<%= t('website.hero.description') %>">
 
+  <%# Open Graph meta tags %>
+  <meta property="og:title" content="<%= t('website.seo.og_title') %>">
+  <meta property="og:description" content="<%= t('website.seo.og_description') %>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= request.base_url %>">
+  <meta property="og:image" content="<%= image_url('website/landscape1.webp') %>">
+  <meta property="og:locale" content="<%= { es: 'es_ES', en: 'en_US', de: 'de_DE' }[I18n.locale] %>">
+
+  <%# Twitter Card meta tags %>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= t('website.seo.og_title') %>">
+  <meta name="twitter:description" content="<%= t('website.seo.og_description') %>">
+  <meta name="twitter:image" content="<%= image_url('website/landscape1.webp') %>">
+
+  <%# Canonical URL (without locale query params) %>
+  <link rel="canonical" href="<%= request.base_url %>">
+
+  <%# Hreflang alternate links for multilingual SEO %>
+  <link rel="alternate" hreflang="es" href="<%= request.base_url %>?locale=es">
+  <link rel="alternate" hreflang="en" href="<%= request.base_url %>?locale=en">
+  <link rel="alternate" hreflang="de" href="<%= request.base_url %>?locale=de">
+  <link rel="alternate" hreflang="x-default" href="<%= request.base_url %>">
+
+  <%# Favicon %>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="<%= image_url('website/logo.png') %>">
+
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <%= render "website/shared/structured_data" %>
 
   <%= stylesheet_link_tag "website", media: "all" %>
   <%= javascript_importmap_tags "application-website" %>
