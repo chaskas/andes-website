@@ -494,7 +494,7 @@ section {
   // Desktop: grid images
   &--desktop &__img {
     width: 100%;
-    aspect-ratio: 3 / 2;
+    height: 340px;
     object-fit: cover;
     display: block;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -507,7 +507,7 @@ section {
   // Mobile: single images
   &--mobile &__img {
     width: 100%;
-    aspect-ratio: 3 / 2;
+    height: 260px;
     object-fit: cover;
     display: block;
   }
@@ -589,7 +589,7 @@ section {
   }
 
   &__photo {
-    aspect-ratio: 3 / 2;
+    height: 220px;
     overflow: hidden;
     position: relative;
 
