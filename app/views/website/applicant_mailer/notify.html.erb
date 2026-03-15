@@ -1,0 +1,14 @@
+<h2>Nueva postulación — Trabaja con nosotros</h2>
+
+<p><strong>Nombre:</strong> <%= @applicant.name %></p>
+<p><strong>Email:</strong> <%= @applicant.email %></p>
+<% if @applicant.phone.present? %>
+  <p><strong>Teléfono:</strong> <%= @applicant.phone %></p>
+<% end %>
+<p><strong>Profesión / Instrumento:</strong> <%= @applicant.profession %></p>
+<p><strong>Ciudad / Ubicación:</strong> <%= @applicant.location %></p>
+<p><strong>Disponibilidad:</strong> <%= @applicant.availability %></p>
+<% if @applicant.message.present? %>
+  <h3>Mensaje:</h3>
+  <p><%= simple_format(@applicant.message) %></p>
+<% end %>

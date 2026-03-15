@@ -1,0 +1,88 @@
+<section class="enrollment-section" style="padding-top: 120px;">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <%# Introductory text %>
+      <div class="col-lg-5 reveal">
+        <span class="section-label"><%= t('website.work_with_us.nav_link') %></span>
+        <h1 class="section-title mb-4"><%= t('website.work_with_us.title') %></h1>
+        <p class="enrollment-desc"><strong><%= t('website.work_with_us.subtitle') %></strong></p>
+        <p class="enrollment-desc"><%= t('website.work_with_us.description') %></p>
+      </div>
+
+      <%# Application form %>
+      <div class="col-lg-7 reveal">
+        <div class="enrollment-form-card">
+          <% if flash[:notice] %>
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <% if flash[:alert] %>
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+              <i class="bi bi-exclamation-circle-fill me-2"></i>
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
+
+          <%= form_with model: @applicant,
+                        url: website.applicants_path,
+                        local: true,
+                        class: "form-andes" do |f| %>
+
+            <% if @applicant.errors.any? %>
+              <div class="alert alert-danger">
+                <ul class="mb-0">
+                  <% @applicant.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <%= f.label :name, "#{t('website.work_with_us.form.name')} *", class: "form-label" %>
+                <%= f.text_field :name, class: "form-control", placeholder: t('website.work_with_us.form.placeholders.name'), required: true %>
+              </div>
+              <div class="col-md-6">
+                <%= f.label :email, "#{t('website.work_with_us.form.email')} *", class: "form-label" %>
+                <%= f.email_field :email, class: "form-control", placeholder: t('website.work_with_us.form.placeholders.email'), required: true %>
+              </div>
+            </div>
+
+            <div class="row g-3 mt-1">
+              <div class="col-md-6">
+                <%= f.label :phone, "#{t('website.work_with_us.form.phone')} *", class: "form-label" %>
+                <%= f.telephone_field :phone, class: "form-control", placeholder: t('website.work_with_us.form.placeholders.phone'), required: true %>
+              </div>
+              <div class="col-md-6">
+                <%= f.label :profession, "#{t('website.work_with_us.form.profession')} *", class: "form-label" %>
+                <%= f.text_field :profession, class: "form-control", placeholder: t('website.work_with_us.form.placeholders.profession'), required: true %>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <%= f.label :location, "#{t('website.work_with_us.form.location')} *", class: "form-label" %>
+              <%= f.text_field :location, class: "form-control", placeholder: t('website.work_with_us.form.placeholders.location'), required: true %>
+            </div>
+
+            <div class="mt-3">
+              <%= f.label :availability, "#{t('website.work_with_us.form.availability')} *", class: "form-label" %>
+              <%= f.text_field :availability, class: "form-control", placeholder: t('website.work_with_us.form.placeholders.availability'), required: true %>
+            </div>
+
+            <div class="mt-3">
+              <%= f.label :message, "#{t('website.work_with_us.form.message')} *", class: "form-label" %>
+              <%= f.text_area :message, class: "form-control", rows: 4, placeholder: t('website.work_with_us.form.placeholders.message'), required: true %>
+            </div>
+
+            <div class="mt-4">
+              <%= f.submit t('website.work_with_us.form.submit'), class: "btn-submit" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
