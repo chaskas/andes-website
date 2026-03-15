@@ -93,10 +93,10 @@ class LighthouseTest < ActionDispatch::IntegrationTest
     assert_select ".about-carousel img[width][height]", minimum: 3
   end
 
-  test "course card images have width and height attributes" do
+  test "course card images are lazy loaded" do
     get root_url
     assert_response :success
 
-    assert_select ".course-card__photo-img[width='1536'][height='1024']", count: 2
+    assert_select ".course-card__photo-img[loading='lazy']", count: 2
   end
 end
