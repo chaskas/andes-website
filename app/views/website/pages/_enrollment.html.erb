@@ -72,8 +72,8 @@
               <%= f.telephone_field :phone, class: "form-control", placeholder: t('website.enrollment.form.placeholders.phone') %>
             </div>
 
-            <div class="mt-3">
-              <label class="form-label"><%= t('website.enrollment.form.preferred_language') %> *</label>
+            <fieldset class="mt-3 fieldset-plain">
+              <legend class="form-label"><%= t('website.enrollment.form.preferred_language') %> *</legend>
               <div class="d-flex flex-wrap gap-3">
                 <% %w[espanol aleman ingles].each do |lang| %>
                   <div class="form-check">
@@ -82,10 +82,10 @@
                   </div>
                 <% end %>
               </div>
-            </div>
+            </fieldset>
 
-            <div class="mt-3">
-              <label class="form-label"><%= t('website.enrollment.form.class_type') %> *</label>
+            <fieldset class="mt-3 fieldset-plain">
+              <legend class="form-label"><%= t('website.enrollment.form.class_type') %> *</legend>
               <div class="d-flex flex-wrap gap-3">
                 <% %w[iniciacion_musical piano].each do |type| %>
                   <div class="form-check">
@@ -94,7 +94,7 @@
                   </div>
                 <% end %>
               </div>
-            </div>
+            </fieldset>
 
             <div class="mt-3">
               <%= f.label :availability, "#{t('website.enrollment.form.availability')} *", class: "form-label" %>

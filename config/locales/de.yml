@@ -3,6 +3,12 @@ de:
     seo:
       og_title: "Andes Academy - Musikschule in Berlin"
       og_description: "Multikulturelle Musikschule im Herzen Berlins. Klavierunterricht und musikalische Früherziehung für alle Altersgruppen, auf Spanisch, Deutsch und Englisch."
+    accessibility:
+      skip_to_content: "Zum Hauptinhalt springen"
+      previous: "Zurück"
+      next: "Weiter"
+      slide: "Folie %{number}"
+      select_language: "Sprache wählen"
     nav:
       home: "Startseite"
       about: "Über uns"

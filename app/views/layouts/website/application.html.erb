@@ -58,9 +58,11 @@
 </head>
 <body data-bs-spy="scroll" data-bs-target="#main-navbar">
 
+  <a href="#main-content" class="skip-link"><%= t('website.accessibility.skip_to_content') %></a>
+
   <%= render "website/shared/navbar" %>
 
-  <main>
+  <main id="main-content">
     <%= yield %>
   </main>
 

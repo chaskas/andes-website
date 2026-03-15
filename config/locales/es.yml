@@ -3,6 +3,12 @@ es:
     seo:
       og_title: "Andes Academy - Escuela de Música en Berlín"
       og_description: "Escuela de música multicultural en el corazón de Berlín. Clases de piano e iniciación musical para todas las edades, en español, alemán e inglés."
+    accessibility:
+      skip_to_content: "Saltar al contenido principal"
+      previous: "Anterior"
+      next: "Siguiente"
+      slide: "Diapositiva %{number}"
+      select_language: "Seleccionar idioma"
     nav:
       home: "Inicio"
       about: "Sobre Nosotros"
