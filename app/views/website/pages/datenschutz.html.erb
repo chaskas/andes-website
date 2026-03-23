@@ -1,0 +1,81 @@
+<section class="legal-section">
+  <div class="container">
+    <div class="legal-card">
+      <span class="section-label"><%= t('website.datenschutz.label') %></span>
+      <h1 class="section-title mb-4"><%= t('website.datenschutz.title') %></h1>
+
+      <%# 1. Data Controller %>
+      <h2 class="legal-heading"><%= t('website.datenschutz.controller_title') %></h2>
+      <div class="legal-block">
+        <p class="mb-1"><strong>Paulina Ignacia Suazo Hern&aacute;ndez</strong></p>
+        <p class="mb-1">Courbierestr. 5, 10787 Berlin</p>
+        <p class="mb-1"><strong><%= t('website.datenschutz.email') %>:</strong> pisuazoh@gmail.com</p>
+        <p class="mb-3"><strong><%= t('website.datenschutz.phone') %>:</strong> +49 172 624 6663</p>
+      </div>
+
+      <%# 2. Data Collection %>
+      <h2 class="legal-heading"><%= t('website.datenschutz.collection_title') %></h2>
+      <div class="legal-block">
+        <p><%= t('website.datenschutz.collection_intro') %></p>
+        <ul class="legal-list">
+          <% t('website.datenschutz.collection_items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <%# 3. Legal Basis %>
+      <h2 class="legal-heading"><%= t('website.datenschutz.legal_basis_title') %></h2>
+      <div class="legal-block">
+        <p><%= t('website.datenschutz.legal_basis_contract') %></p>
+        <p><%= t('website.datenschutz.legal_basis_consent') %></p>
+      </div>
+
+      <%# 4. Cookies & Google Analytics %>
+      <h2 class="legal-heading"><%= t('website.datenschutz.cookies_title') %></h2>
+      <div class="legal-block">
+        <p><%= t('website.datenschutz.cookies_intro') %></p>
+        <p><%= t('website.datenschutz.cookies_ga') %></p>
+        <p><%= t('website.datenschutz.cookies_consent') %></p>
+      </div>
+
+      <%# 5. Data Retention %>
+      <h2 class="legal-heading"><%= t('website.datenschutz.retention_title') %></h2>
+      <div class="legal-block">
+        <p><%= t('website.datenschutz.retention_text') %></p>
+      </div>
+
+      <%# 6. Third Parties %>
+      <h2 class="legal-heading"><%= t('website.datenschutz.third_parties_title') %></h2>
+      <div class="legal-block">
+        <ul class="legal-list">
+          <% t('website.datenschutz.third_parties_items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <%# 7. Your Rights %>
+      <h2 class="legal-heading"><%= t('website.datenschutz.rights_title') %></h2>
+      <div class="legal-block">
+        <p><%= t('website.datenschutz.rights_intro') %></p>
+        <ul class="legal-list">
+          <% t('website.datenschutz.rights_items').each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+        <p><%= t('website.datenschutz.rights_complaint') %></p>
+      </div>
+
+      <%# 8. Children's Data %>
+      <h2 class="legal-heading"><%= t('website.datenschutz.children_title') %></h2>
+      <div class="legal-block">
+        <p><%= t('website.datenschutz.children_text') %></p>
+      </div>
+
+      <div class="mt-4">
+        <%= link_to t('website.datenschutz.back_home'), website.root_path, class: "btn-andes-outline" %>
+      </div>
+    </div>
+  </div>
+</section>

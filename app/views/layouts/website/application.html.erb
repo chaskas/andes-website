@@ -2,15 +2,7 @@
 <html lang="<%= I18n.locale %>">
 <head>
   <% if ENV['GOOGLE_ANALYTICS_MEASUREMENT_ID'].present? %>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= ENV['GOOGLE_ANALYTICS_MEASUREMENT_ID'] %>"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '<%= ENV['GOOGLE_ANALYTICS_MEASUREMENT_ID'] %>');
-  </script>
+  <meta name="ga-measurement-id" content="<%= ENV['GOOGLE_ANALYTICS_MEASUREMENT_ID'] %>">
   <% end %>
   <title>Andes Academy - <%= t('website.hero.tagline') %></title>
   <meta charset="utf-8">
@@ -69,6 +61,65 @@
   </main>
 
   <%= render "website/shared/footer" %>
+  <%= render "website/shared/cookie_consent" %>
+
+  <script>
+    (function() {
+      var COOKIE_NAME = 'andes_cookie_consent';
+
+      function getCookie(name) {
+        var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+      }
+
+      function setCookie(name, value, days) {
+        var d = new Date();
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + '=' + value + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+      }
+
+      function loadGA() {
+        var gaId = document.querySelector('meta[name="ga-measurement-id"]');
+        if (!gaId) return;
+        var id = gaId.getAttribute('content');
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+        document.head.appendChild(script);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', id, { anonymize_ip: true });
+      }
+
+      var consent = getCookie(COOKIE_NAME);
+      if (consent === 'accepted') {
+        loadGA();
+      } else if (!consent) {
+        var banner = document.getElementById('cookie-consent-banner');
+        if (banner) banner.style.display = 'flex';
+      }
+
+      var acceptBtn = document.getElementById('cookie-accept');
+      var rejectBtn = document.getElementById('cookie-reject');
+
+      if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+          setCookie(COOKIE_NAME, 'accepted', 365);
+          document.getElementById('cookie-consent-banner').style.display = 'none';
+          loadGA();
+        });
+      }
+
+      if (rejectBtn) {
+        rejectBtn.addEventListener('click', function() {
+          setCookie(COOKIE_NAME, 'rejected', 365);
+          document.getElementById('cookie-consent-banner').style.display = 'none';
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>

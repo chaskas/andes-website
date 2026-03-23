@@ -26,8 +26,13 @@
 
     <hr class="footer-andes__divider">
 
-    <div class="text-center footer-andes__copy">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center footer-andes__copy">
       <small>&copy; <%= Date.current.year %> Andes Academy. <%= t('website.footer.rights') %></small>
+      <div class="footer-andes__legal mt-2 mt-md-0">
+        <%= link_to t('website.footer.impressum'), website.impressum_path, class: "footer-andes__legal-link" %>
+        <span class="footer-andes__legal-sep">|</span>
+        <%= link_to t('website.footer.datenschutz'), website.datenschutz_path, class: "footer-andes__legal-link" %>
+      </div>
     </div>
   </div>
 </footer>

@@ -7,5 +7,6 @@ module Website
     validates :preferred_language, presence: true, inclusion: { in: %w[espanol aleman ingles] }
     validates :class_type, presence: true, inclusion: { in: %w[iniciacion_musical piano] }
     validates :availability, presence: true
+    validates :privacy_accepted, acceptance: true
   end
 end

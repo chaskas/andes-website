@@ -10,7 +10,8 @@ module Website
         email: "ana@example.com",
         preferred_language: "espanol",
         class_type: "iniciacion_musical",
-        availability: "Miércoles por la tarde"
+        availability: "Miércoles por la tarde",
+        privacy_accepted: "1"
       }
     end
 

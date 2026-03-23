@@ -16,7 +16,8 @@ module Website
     def enrollment_params
       params.require(:enrollment).permit(
         :student_name, :student_age, :contact_name, :email, :phone,
-        :preferred_language, :class_type, :availability, :comments
+        :preferred_language, :class_type, :availability, :comments,
+        :privacy_accepted
       )
     end
   end

@@ -14,7 +14,8 @@ module Website
           preferred_language: "espanol",
           class_type: "iniciacion_musical",
           availability: "Miércoles por la tarde",
-          comments: "Clase de prueba"
+          comments: "Clase de prueba",
+          privacy_accepted: "1"
         }
       }
     end

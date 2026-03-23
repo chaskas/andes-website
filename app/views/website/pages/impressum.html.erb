@@ -1,0 +1,35 @@
+<section class="legal-section">
+  <div class="container">
+    <div class="legal-card">
+      <span class="section-label"><%= t('website.impressum.label') %></span>
+      <h1 class="section-title mb-4"><%= t('website.impressum.title') %></h1>
+
+      <h2 class="legal-heading"><%= t('website.impressum.legal_notice') %></h2>
+
+      <div class="legal-block">
+        <p class="mb-1"><strong>Paulina Ignacia Suazo Hern&aacute;ndez</strong></p>
+        <p class="mb-1">Courbierestr. 5</p>
+        <p class="mb-3">10787 Berlin</p>
+
+        <p class="mb-1"><strong><%= t('website.impressum.email') %>:</strong> pisuazoh@gmail.com</p>
+        <p class="mb-3"><strong><%= t('website.impressum.phone') %>:</strong> +49 172 624 6663</p>
+
+        <p class="mb-1"><strong><%= t('website.impressum.profession') %>:</strong></p>
+        <p class="mb-3"><%= t('website.impressum.profession_value') %></p>
+
+        <p class="mb-1"><strong><%= t('website.impressum.tax_number') %>:</strong></p>
+        <p class="mb-3"><%= t('website.impressum.tax_number_value') %></p>
+      </div>
+
+      <h2 class="legal-heading"><%= t('website.impressum.content_responsible_title') %></h2>
+      <div class="legal-block">
+        <p>Paulina Ignacia Suazo Hern&aacute;ndez</p>
+        <p>Courbierestr. 5, 10787 Berlin</p>
+      </div>
+
+      <div class="mt-4">
+        <%= link_to t('website.impressum.back_home'), website.root_path, class: "btn-andes-outline" %>
+      </div>
+    </div>
+  </div>
+</section>
