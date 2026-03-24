@@ -13,6 +13,7 @@ en:
       home: "Home"
       about: "About Us"
       courses: "Courses"
+      trial_classes: "Trial Classes"
       contact: "Contact"
       select_language: "Select language"
     hero:
@@ -143,6 +144,25 @@ en:
         privacy_link_text: "Privacy Policy"
       success: "Thank you! Your request has been submitted successfully. We will contact you soon."
       error: "There was an error submitting the form. Please try again."
+    trial_classes:
+      title: "Trial Classes"
+      label: "Trial classes"
+      heading: "Discover music with us"
+      subtitle: "Book a free class to meet our teachers and experience our teaching approach."
+      upcoming_sessions: "Upcoming available sessions"
+      minutes:
+        one: "%{count} minute"
+        other: "%{count} minutes"
+      slots_available:
+        one: "%{count} slot available"
+        other: "%{count} slots available"
+      last_slot: "Last slot available"
+      book: "Book"
+      submit: "Book trial class"
+      change_session: "Change"
+      empty: "No trial classes available at the moment"
+      empty_hint: "Leave us your details and we'll let you know when new classes are available."
+      empty_cta: "Go to enrollment form"
     work_with_us:
       nav_link: "Work with us"
       title: "Work with us"

@@ -13,6 +13,7 @@ es:
       home: "Inicio"
       about: "Sobre Nosotros"
       courses: "Cursos"
+      trial_classes: "Clases de Prueba"
       contact: "Contacto"
       select_language: "Selecciona idioma"
     hero:
@@ -143,6 +144,25 @@ es:
         privacy_link_text: "Política de Privacidad"
       success: "¡Gracias! Tu solicitud ha sido enviada exitosamente. Nos pondremos en contacto contigo pronto."
       error: "Hubo un error al enviar el formulario. Por favor intenta de nuevo."
+    trial_classes:
+      title: "Clases de Prueba"
+      label: "Clases de prueba"
+      heading: "Descubre la música con nosotros"
+      subtitle: "Reserva una clase gratuita para conocer a nuestros profesores y nuestra forma de enseñar."
+      upcoming_sessions: "Próximas sesiones disponibles"
+      minutes:
+        one: "%{count} minuto"
+        other: "%{count} minutos"
+      slots_available:
+        one: "%{count} cupo disponible"
+        other: "%{count} cupos disponibles"
+      last_slot: "Último cupo disponible"
+      book: "Reservar"
+      submit: "Reservar clase de prueba"
+      change_session: "Cambiar"
+      empty: "No hay clases de prueba disponibles en este momento"
+      empty_hint: "Déjanos tus datos y te avisaremos cuando haya nuevas clases disponibles."
+      empty_cta: "Ir al formulario de inscripción"
     work_with_us:
       nav_link: "Trabaja con nosotros"
       title: "Trabaja con nosotros"

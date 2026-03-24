@@ -1,0 +1,268 @@
+// ============================================
+// ANDES ACADEMY — TRIAL CLASSES PAGE
+// ============================================
+
+// --- Mini Hero ---
+.trial-hero {
+  background-color: var(--andes-sand);
+  padding: 7rem 0 3rem;
+
+  &__subtitle {
+    color: rgba(42, 37, 32, 0.65);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+// --- Trial Classes Section ---
+.trial-classes-section {
+  background-color: var(--andes-cream);
+  padding: 3rem 0 5rem;
+}
+
+// --- Trial Card ---
+.trial-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--andes-sand);
+  height: 100%;
+  transition: all 0.4s ease;
+
+  &:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
+  }
+
+  &__header {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, var(--andes-terra-light), rgba(255, 255, 255, 0.5));
+    border-bottom: 1px solid var(--andes-sand);
+  }
+
+  &__icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: var(--andes-terra);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    i {
+      font-size: 1.5rem;
+      color: #fff;
+    }
+  }
+
+  &__title {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--andes-ink);
+    margin-bottom: 0;
+  }
+
+  &__facilitator {
+    font-size: 0.95rem;
+    color: rgba(42, 37, 32, 0.6);
+    margin-bottom: 0;
+    margin-top: 0.25rem;
+  }
+
+  &__body {
+    padding: 2rem;
+  }
+
+  &__sessions-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(42, 37, 32, 0.45);
+    margin-bottom: 1rem;
+  }
+}
+
+// --- Trial Session Row ---
+.trial-session {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--andes-cream);
+  border-radius: 14px;
+  border: 1px solid var(--andes-sand);
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-color: var(--andes-terra);
+    box-shadow: 0 4px 16px rgba(196, 93, 62, 0.08);
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__date {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--andes-ink);
+    margin-bottom: 0.25rem;
+
+    i {
+      color: var(--andes-terra);
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__time {
+    font-size: 0.85rem;
+    color: rgba(42, 37, 32, 0.6);
+
+    i {
+      color: var(--andes-terra);
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__slots {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 0.35rem;
+
+    &--plenty {
+      color: var(--andes-sage);
+    }
+
+    &--medium {
+      color: var(--andes-gold);
+    }
+
+    &--low {
+      color: var(--andes-rose);
+    }
+  }
+
+  &__btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+// --- Sign-up Form Area ---
+.trial-signup {
+  padding-top: 3rem;
+  scroll-margin-top: 76px;
+}
+
+.trial-selected-summary {
+  &__content {
+    background: linear-gradient(135deg, var(--andes-terra-light), var(--andes-gold-light));
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--andes-terra);
+  }
+
+  &__class {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--andes-ink);
+    margin-bottom: 0.25rem;
+  }
+
+  &__session {
+    font-size: 0.9rem;
+    color: rgba(42, 37, 32, 0.65);
+  }
+
+  &__change {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--andes-terra);
+    text-decoration: underline;
+
+    &:hover {
+      color: darken(#c45d3e, 10%);
+    }
+  }
+}
+
+// --- Empty State ---
+.trial-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #fff;
+  border-radius: 24px;
+  border: 1px solid var(--andes-sand);
+
+  &__icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: var(--andes-terra-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+
+    i {
+      font-size: 2rem;
+      color: var(--andes-terra);
+    }
+  }
+
+  &__message {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--andes-ink);
+    margin-bottom: 0.5rem;
+  }
+
+  &__hint {
+    color: rgba(42, 37, 32, 0.6);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// --- Responsive ---
+@media (max-width: 768px) {
+  .trial-hero {
+    padding: 6rem 0 2rem;
+  }
+
+  .trial-session {
+    flex-direction: column;
+    align-items: stretch;
+
+    &__btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  .trial-card {
+    &__header {
+      padding: 1.5rem;
+    }
+
+    &__body {
+      padding: 1.5rem;
+    }
+  }
+}

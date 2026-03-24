@@ -3,9 +3,15 @@ module Website
     def notify(enrollment)
       @enrollment = enrollment
 
+      subject = if enrollment.trial?
+                  "Nueva clase de prueba: #{enrollment.student_name}"
+                else
+                  "Nueva inscripción: #{enrollment.student_name}"
+                end
+
       mail(
         to: "pisuazoh@gmail.com",
-        subject: "Nueva inscripción: #{enrollment.student_name}",
+        subject: subject,
         reply_to: enrollment.email
       )
     end

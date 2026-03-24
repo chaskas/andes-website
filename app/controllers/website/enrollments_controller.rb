@@ -5,9 +5,11 @@ module Website
 
       if @enrollment.save
         EnrollmentMailer.notify(@enrollment).deliver_now
-        redirect_to root_path(anchor: "contacto"), notice: t("website.enrollment.success")
+        redirect_path = @enrollment.trial? ? trial_classes_path : root_path(anchor: "contacto")
+        redirect_to redirect_path, notice: t("website.enrollment.success")
       else
-        redirect_to root_path(anchor: "contacto"), alert: t("website.enrollment.error")
+        redirect_path = @enrollment.trial? ? trial_classes_path : root_path(anchor: "contacto")
+        redirect_to redirect_path, alert: t("website.enrollment.error")
       end
     end
 
@@ -17,7 +19,7 @@ module Website
       params.require(:enrollment).permit(
         :student_name, :student_age, :contact_name, :email, :phone,
         :preferred_language, :class_type, :availability, :comments,
-        :privacy_accepted
+        :privacy_accepted, :source, :session_detail_id, :session_record_id
       )
     end
   end

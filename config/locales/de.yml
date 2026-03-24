@@ -13,6 +13,7 @@ de:
       home: "Startseite"
       about: "Über uns"
       courses: "Kurse"
+      trial_classes: "Probestunden"
       contact: "Kontakt"
       select_language: "Sprache wählen"
     hero:
@@ -143,6 +144,25 @@ de:
         privacy_link_text: "Datenschutzerklärung"
       success: "Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir werden uns bald mit Ihnen in Verbindung setzen."
       error: "Beim Senden des Formulars ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+    trial_classes:
+      title: "Probestunden"
+      label: "Probestunden"
+      heading: "Entdecken Sie Musik mit uns"
+      subtitle: "Buchen Sie eine kostenlose Stunde, um unsere Lehrer kennenzulernen und unseren Unterrichtsansatz zu erleben."
+      upcoming_sessions: "Nächste verfügbare Termine"
+      minutes:
+        one: "%{count} Minute"
+        other: "%{count} Minuten"
+      slots_available:
+        one: "%{count} Platz verfügbar"
+        other: "%{count} Plätze verfügbar"
+      last_slot: "Letzter Platz verfügbar"
+      book: "Buchen"
+      submit: "Probestunde buchen"
+      change_session: "Ändern"
+      empty: "Derzeit sind keine Probestunden verfügbar"
+      empty_hint: "Hinterlassen Sie uns Ihre Daten und wir informieren Sie, wenn neue Kurse verfügbar sind."
+      empty_cta: "Zum Anmeldeformular"
     work_with_us:
       nav_link: "Arbeiten Sie mit uns"
       title: "Arbeiten Sie mit uns"

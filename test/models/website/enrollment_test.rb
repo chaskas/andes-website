@@ -94,5 +94,80 @@ module Website
       enrollment = Enrollment.new(valid_attributes.merge(phone: nil, comments: nil))
       assert enrollment.valid?
     end
+
+    # Trial source tests
+    def trial_attributes
+      {
+        student_name: "María González",
+        student_age: "3 años",
+        contact_name: "Ana González",
+        email: "ana@example.com",
+        source: "trial",
+        session_detail_id: 1,
+        session_record_id: 1,
+        privacy_accepted: "1"
+      }
+    end
+
+    test "valid trial enrollment is saved" do
+      enrollment = Enrollment.new(trial_attributes)
+      assert enrollment.valid?
+    end
+
+    test "trial enrollment does not require preferred_language" do
+      enrollment = Enrollment.new(trial_attributes)
+      assert enrollment.valid?
+      assert_nil enrollment.preferred_language
+    end
+
+    test "trial enrollment does not require class_type" do
+      enrollment = Enrollment.new(trial_attributes)
+      assert enrollment.valid?
+      assert_nil enrollment.class_type
+    end
+
+    test "trial enrollment does not require availability" do
+      enrollment = Enrollment.new(trial_attributes)
+      assert enrollment.valid?
+      assert_nil enrollment.availability
+    end
+
+    test "trial enrollment requires session_detail_id" do
+      enrollment = Enrollment.new(trial_attributes.merge(session_detail_id: nil))
+      assert_not enrollment.valid?
+      assert enrollment.errors[:session_detail_id].any?
+    end
+
+    test "trial enrollment requires session_record_id" do
+      enrollment = Enrollment.new(trial_attributes.merge(session_record_id: nil))
+      assert_not enrollment.valid?
+      assert enrollment.errors[:session_record_id].any?
+    end
+
+    test "source defaults to landing" do
+      enrollment = Enrollment.new(valid_attributes)
+      assert_equal "landing", enrollment.source
+    end
+
+    test "landing enrollment still requires preferred_language" do
+      enrollment = Enrollment.new(valid_attributes.merge(preferred_language: nil))
+      assert_not enrollment.valid?
+    end
+
+    test "landing enrollment still requires class_type" do
+      enrollment = Enrollment.new(valid_attributes.merge(class_type: nil))
+      assert_not enrollment.valid?
+    end
+
+    test "landing enrollment still requires availability" do
+      enrollment = Enrollment.new(valid_attributes.merge(availability: nil))
+      assert_not enrollment.valid?
+    end
+
+    test "invalid email rejected regardless of source" do
+      enrollment = Enrollment.new(trial_attributes.merge(email: "not-an-email"))
+      assert_not enrollment.valid?
+      assert enrollment.errors[:email].any?
+    end
   end
 end
