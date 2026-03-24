@@ -165,6 +165,7 @@ es:
         other: "Ver %{count} fechas más"
       submit: "Reservar clase de prueba"
       change_session: "Cambiar"
+      group_full: "Lo sentimos, este grupo ya está completo."
       empty: "No hay clases de prueba disponibles en este momento"
       empty_hint: "Déjanos tus datos y te avisaremos cuando haya nuevas clases disponibles."
       empty_cta: "Ir al formulario de inscripción"

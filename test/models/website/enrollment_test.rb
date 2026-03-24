@@ -105,6 +105,7 @@ module Website
         source: "trial",
         session_detail_id: 1,
         session_record_id: 1,
+        participant_id: 1,
         privacy_accepted: "1"
       }
     end
@@ -142,6 +143,12 @@ module Website
       enrollment = Enrollment.new(trial_attributes.merge(session_record_id: nil))
       assert_not enrollment.valid?
       assert enrollment.errors[:session_record_id].any?
+    end
+
+    test "trial enrollment requires participant_id" do
+      enrollment = Enrollment.new(trial_attributes.merge(participant_id: nil))
+      assert_not enrollment.valid?
+      assert enrollment.errors[:participant_id].any?
     end
 
     test "source defaults to landing" do

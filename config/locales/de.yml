@@ -165,6 +165,7 @@ de:
         other: "%{count} weitere Termine anzeigen"
       submit: "Probestunde buchen"
       change_session: "Ändern"
+      group_full: "Leider ist diese Gruppe bereits voll."
       empty: "Derzeit sind keine Probestunden verfügbar"
       empty_hint: "Hinterlassen Sie uns Ihre Daten und wir informieren Sie, wenn neue Kurse verfügbar sind."
       empty_cta: "Zum Anmeldeformular"

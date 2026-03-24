@@ -15,6 +15,7 @@ module Website
     # Trial-only validations
     validates :session_detail_id, presence: true, if: :trial?
     validates :session_record_id, presence: true, if: :trial?
+    validates :participant_id, presence: true, if: :trial?
 
     def landing?
       source == "landing"

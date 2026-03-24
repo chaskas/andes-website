@@ -165,6 +165,7 @@ en:
         other: "See %{count} more dates"
       submit: "Book trial class"
       change_session: "Change"
+      group_full: "Sorry, this group is already full."
       empty: "No trial classes available at the moment"
       empty_hint: "Leave us your details and we'll let you know when new classes are available."
       empty_cta: "Go to enrollment form"

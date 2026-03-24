@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_24_130906) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_24_170618) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -42,5 +42,6 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_24_130906) do
     t.string "source", default: "landing", null: false
     t.integer "session_detail_id"
     t.integer "session_record_id"
+    t.integer "participant_id"
   end
 end
