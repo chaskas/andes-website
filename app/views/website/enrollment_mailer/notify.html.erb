@@ -1,7 +1,41 @@
 <% if @enrollment.trial? %>
   <h2>Nueva clase de prueba</h2>
 
-  <p><strong>Clase:</strong> Sesión #<%= @enrollment.session_detail_id %> — Horario #<%= @enrollment.session_record_id %></p>
+  <% if @session_detail %>
+    <table cellpadding="8" cellspacing="0" style="border: 1px solid #ede4d4; border-radius: 8px; background: #faf6ef; margin-bottom: 16px; width: 100%;">
+      <tr>
+        <td style="border-bottom: 1px solid #ede4d4;">
+          <strong>Clase:</strong> <%= @session_detail.title %>
+        </td>
+      </tr>
+      <tr>
+        <td style="border-bottom: 1px solid #ede4d4;">
+          <strong>Profesor/a:</strong> <%= @session_detail.facilitator&.name || "Sin asignar" %>
+        </td>
+      </tr>
+      <tr>
+        <td style="border-bottom: 1px solid #ede4d4;">
+          <strong>Grupo:</strong> <%= @session_detail.targetable&.name %>
+          <% if @session_detail.targetable.respond_to?(:available_slots) && @session_detail.targetable.capacity %>
+            (<%= @session_detail.targetable.participants.size %>/<%= @session_detail.targetable.capacity %> estudiantes)
+          <% end %>
+        </td>
+      </tr>
+      <% if @session_record %>
+        <tr>
+          <td style="border-bottom: 1px solid #ede4d4;">
+            <strong>Fecha:</strong> <%= I18n.l(@session_record.start_time.to_date, format: :long) %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Horario:</strong> <%= @session_record.start_time.strftime("%H:%M") %> · <%= @session_record.duration %> minutos
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
   <hr>
 <% else %>
   <h2>Nueva inscripción</h2>

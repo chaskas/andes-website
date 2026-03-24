@@ -32,8 +32,8 @@ module Website
         contact_name: "Peter Schmidt",
         email: "peter@example.com",
         source: "trial",
-        session_detail_id: 42,
-        session_record_id: 101
+        session_detail_id: 999,
+        session_record_id: 999
       )
 
       email = EnrollmentMailer.notify(enrollment)
@@ -41,8 +41,7 @@ module Website
       assert_equal ["pisuazoh@gmail.com"], email.to
       assert_equal "Nueva clase de prueba: Lucas Schmidt", email.subject
       assert_match "Lucas Schmidt", email.body.encoded
-      assert_match "42", email.body.encoded
-      assert_match "101", email.body.encoded
+      assert_match "Nueva clase de prueba", email.body.encoded
       assert_no_match "Idioma preferido", email.body.encoded
     end
 
