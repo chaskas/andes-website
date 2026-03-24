@@ -9,6 +9,30 @@
   </div>
 </section>
 
+<%# Flash Messages %>
+<% if flash[:notice] || flash[:alert] %>
+  <section class="trial-flash-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <% if flash[:notice] %>
+            <div class="alert alert-success d-flex align-items-center" role="alert">
+              <i class="bi bi-check-circle-fill me-2"></i>
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+          <% if flash[:alert] %>
+            <div class="alert alert-danger d-flex align-items-center" role="alert">
+              <i class="bi bi-exclamation-circle-fill me-2"></i>
+              <%= flash[:alert] %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>
+
 <%# Trial Class Cards %>
 <section class="trial-classes-section">
   <div class="container">
@@ -120,19 +144,6 @@
                   <a href="#" id="summary-change-link" class="trial-selected-summary__change"><%= t('website.trial_classes.change_session') %></a>
                 </div>
               </div>
-
-              <% if flash[:notice] %>
-                <div class="alert alert-success d-flex align-items-center" role="alert">
-                  <i class="bi bi-check-circle-fill me-2"></i>
-                  <%= flash[:notice] %>
-                </div>
-              <% end %>
-              <% if flash[:alert] %>
-                <div class="alert alert-danger d-flex align-items-center" role="alert">
-                  <i class="bi bi-exclamation-circle-fill me-2"></i>
-                  <%= flash[:alert] %>
-                </div>
-              <% end %>
 
               <%= form_with url: website.enrollments_path, scope: :enrollment, local: true, class: "form-andes", id: "trial-form" do |f| %>
                 <%= f.hidden_field :source, value: "trial", id: "enrollment_source" %>
