@@ -1,15 +1,20 @@
 import * as bootstrap from "bootstrap"
 
-// Navbar scroll effect: transparent → solid
+// Navbar scroll effect: transparent → solid (only on pages with a hero)
 const navbar = document.getElementById('main-navbar')
 if (navbar) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('navbar-scrolled')
-    } else {
-      navbar.classList.remove('navbar-scrolled')
-    }
-  }, { passive: true })
+  const hasHero = document.querySelector('.hero-andes')
+  if (hasHero) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar-scrolled')
+      } else {
+        navbar.classList.remove('navbar-scrolled')
+      }
+    }, { passive: true })
+  } else {
+    navbar.classList.add('navbar-scrolled')
+  }
 }
 
 // Scroll reveal animation using IntersectionObserver

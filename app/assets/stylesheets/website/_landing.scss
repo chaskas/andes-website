@@ -293,16 +293,18 @@ section {
   }
 
   &__trial-btn {
-    border-color: var(--andes-gold) !important;
-    color: var(--andes-gold) !important;
+    background-color: #fff !important;
+    border-color: #fff !important;
+    color: var(--andes-terra) !important;
     font-size: 0.9rem !important;
     padding: 0.6rem 1.75rem !important;
 
     &:hover {
-      background-color: rgba(201, 150, 58, 0.15) !important;
-      border-color: var(--andes-gold) !important;
-      color: #fff !important;
-      box-shadow: 0 4px 20px rgba(201, 150, 58, 0.2) !important;
+      background-color: var(--andes-cream) !important;
+      border-color: var(--andes-cream) !important;
+      color: var(--andes-terra) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
     }
   }
 
