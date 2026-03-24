@@ -6,6 +6,9 @@ module Website
       @trial_classes = fetch_trial_classes
     end
 
+    def thank_you
+    end
+
     private
 
     def fetch_trial_classes

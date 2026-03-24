@@ -37,7 +37,7 @@ module Website
       if @enrollment.save
         Rails.cache.delete("trial_classes")
         EnrollmentMailer.notify(@enrollment).deliver_now
-        redirect_to trial_classes_path, notice: t("website.enrollment.success")
+        redirect_to trial_classes_thank_you_path
       else
         participant.destroy!
         redirect_to trial_classes_path, alert: t("website.enrollment.error")

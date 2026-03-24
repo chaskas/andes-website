@@ -166,6 +166,10 @@ en:
       submit: "Book trial class"
       change_session: "Change"
       group_full: "Sorry, this group is already full."
+      thank_you:
+        title: "Booking confirmed"
+        heading: "Thank you for your booking!"
+        message: "We have received your request successfully. We will contact you soon to confirm the details of your trial class."
       empty: "No trial classes available at the moment"
       empty_hint: "Leave us your details and we'll let you know when new classes are available."
       empty_cta: "Go to enrollment form"

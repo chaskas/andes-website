@@ -166,6 +166,10 @@ de:
       submit: "Probestunde buchen"
       change_session: "Ändern"
       group_full: "Leider ist diese Gruppe bereits voll."
+      thank_you:
+        title: "Buchung bestätigt"
+        heading: "Vielen Dank für Ihre Buchung!"
+        message: "Wir haben Ihre Anfrage erfolgreich erhalten. Wir werden uns bald bei Ihnen melden, um die Details Ihrer Probestunde zu bestätigen."
       empty: "Derzeit sind keine Probestunden verfügbar"
       empty_hint: "Hinterlassen Sie uns Ihre Daten und wir informieren Sie, wenn neue Kurse verfügbar sind."
       empty_cta: "Zum Anmeldeformular"
