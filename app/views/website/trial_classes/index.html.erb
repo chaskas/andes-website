@@ -134,7 +134,7 @@
                 </div>
               <% end %>
 
-              <%= form_with url: website.enrollments_path, local: true, class: "form-andes", id: "trial-form" do |f| %>
+              <%= form_with url: website.enrollments_path, scope: :enrollment, local: true, class: "form-andes", id: "trial-form" do |f| %>
                 <%= f.hidden_field :source, value: "trial", id: "enrollment_source" %>
                 <%= f.hidden_field :session_detail_id, value: "", id: "enrollment_session_detail_id" %>
                 <%= f.hidden_field :session_record_id, value: "", id: "enrollment_session_record_id" %>
