@@ -80,32 +80,48 @@
     padding: 2rem;
   }
 
-  &__sessions-label {
+  &__next-label {
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(42, 37, 32, 0.45);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 }
 
-// --- Trial Session Row ---
-.trial-session {
+// --- Schedule Pattern Banner ---
+.trial-pattern {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--andes-terra-light);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--andes-terra);
+  margin-bottom: 1.5rem;
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+// --- Next Available Session (Hero treatment) ---
+.trial-next {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1.25rem 1.5rem;
   background: var(--andes-cream);
-  border-radius: 14px;
-  border: 1px solid var(--andes-sand);
-  margin-bottom: 0.75rem;
+  border-radius: 16px;
+  border: 2px solid var(--andes-sand);
   transition: all 0.3s ease;
 
   &:hover {
     border-color: var(--andes-terra);
-    box-shadow: 0 4px 16px rgba(196, 93, 62, 0.08);
   }
 
   &__info {
@@ -113,48 +129,96 @@
   }
 
   &__date {
-    font-weight: 500;
-    font-size: 0.95rem;
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
     color: var(--andes-ink);
     margin-bottom: 0.25rem;
-
-    i {
-      color: var(--andes-terra);
-      margin-right: 0.5rem;
-    }
-  }
-
-  &__time {
-    font-size: 0.85rem;
-    color: rgba(42, 37, 32, 0.6);
-
-    i {
-      color: var(--andes-terra);
-      margin-right: 0.5rem;
-    }
   }
 
   &__slots {
     font-size: 0.8rem;
     font-weight: 600;
-    margin-top: 0.35rem;
 
-    &--plenty {
-      color: var(--andes-sage);
-    }
+    i { font-size: 0.45rem; vertical-align: middle; }
 
-    &--medium {
-      color: var(--andes-gold);
-    }
-
-    &--low {
-      color: var(--andes-rose);
-    }
+    &--plenty { color: var(--andes-sage); }
+    &--medium { color: var(--andes-gold); }
+    &--low { color: var(--andes-rose); }
   }
 
   &__btn {
     white-space: nowrap;
     flex-shrink: 0;
+  }
+}
+
+// --- More Dates Toggle ---
+.trial-more-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  padding: 0;
+  border: none;
+  background: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--andes-terra);
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  i {
+    font-size: 0.7rem;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    color: darken(#c45d3e, 10%);
+  }
+}
+
+// --- More Dates Grid ---
+.trial-more-dates {
+  margin-top: 1rem;
+}
+
+.trial-dates-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.trial-date-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem 0.5rem;
+  background: var(--andes-cream);
+  border: 1px solid var(--andes-sand);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--andes-terra);
+    background: var(--andes-terra-light);
+    transform: translateY(-1px);
+  }
+
+  &__day {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(42, 37, 32, 0.45);
+  }
+
+  &__date {
+    font-family: 'Cormorant', serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--andes-ink);
   }
 }
 
@@ -246,7 +310,7 @@
     padding: 6rem 0 2rem;
   }
 
-  .trial-session {
+  .trial-next {
     flex-direction: column;
     align-items: stretch;
 
@@ -254,6 +318,10 @@
       width: 100%;
       text-align: center;
     }
+  }
+
+  .trial-dates-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .trial-card {

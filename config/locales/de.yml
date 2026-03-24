@@ -150,7 +150,8 @@ de:
       label: "Probestunden"
       heading: "Entdecken Sie Musik mit uns"
       subtitle: "Buchen Sie eine kostenlose Stunde, um unsere Lehrer kennenzulernen und unseren Unterrichtsansatz zu erleben."
-      upcoming_sessions: "Nächste verfügbare Termine"
+      every_day: "Jeden %{day}"
+      next_class: "Nächster verfügbarer Termin"
       minutes:
         one: "%{count} Minute"
         other: "%{count} Minuten"
@@ -158,7 +159,10 @@ de:
         one: "%{count} Platz verfügbar"
         other: "%{count} Plätze verfügbar"
       last_slot: "Letzter Platz verfügbar"
-      book: "Buchen"
+      book_this_class: "Diesen Termin buchen"
+      more_dates:
+        one: "%{count} weiteren Termin anzeigen"
+        other: "%{count} weitere Termine anzeigen"
       submit: "Probestunde buchen"
       change_session: "Ändern"
       empty: "Derzeit sind keine Probestunden verfügbar"

@@ -150,7 +150,8 @@ es:
       label: "Clases de prueba"
       heading: "Descubre la música con nosotros"
       subtitle: "Reserva una clase gratuita para conocer a nuestros profesores y nuestra forma de enseñar."
-      upcoming_sessions: "Próximas sesiones disponibles"
+      every_day: "Todos los %{day}"
+      next_class: "Próxima clase disponible"
       minutes:
         one: "%{count} minuto"
         other: "%{count} minutos"
@@ -158,7 +159,10 @@ es:
         one: "%{count} cupo disponible"
         other: "%{count} cupos disponibles"
       last_slot: "Último cupo disponible"
-      book: "Reservar"
+      book_this_class: "Reservar esta clase"
+      more_dates:
+        one: "Ver %{count} fecha más"
+        other: "Ver %{count} fechas más"
       submit: "Reservar clase de prueba"
       change_session: "Cambiar"
       empty: "No hay clases de prueba disponibles en este momento"

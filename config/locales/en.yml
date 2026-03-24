@@ -150,7 +150,8 @@ en:
       label: "Trial classes"
       heading: "Discover music with us"
       subtitle: "Book a free class to meet our teachers and experience our teaching approach."
-      upcoming_sessions: "Upcoming available sessions"
+      every_day: "Every %{day}"
+      next_class: "Next available class"
       minutes:
         one: "%{count} minute"
         other: "%{count} minutes"
@@ -158,7 +159,10 @@ en:
         one: "%{count} slot available"
         other: "%{count} slots available"
       last_slot: "Last slot available"
-      book: "Book"
+      book_this_class: "Book this class"
+      more_dates:
+        one: "See %{count} more date"
+        other: "See %{count} more dates"
       submit: "Book trial class"
       change_session: "Change"
       empty: "No trial classes available at the moment"
