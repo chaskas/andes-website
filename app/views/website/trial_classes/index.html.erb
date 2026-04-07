@@ -75,30 +75,42 @@
                     <div class="trial-next__date">
                       <%= l(first_date, format: :long).capitalize %>
                     </div>
-                    <div class="trial-next__slots trial-next__slots--<%= available && available <= 1 ? 'low' : available && available <= 2 ? 'medium' : 'plenty' %>">
-                      <% if available && available <= 1 %>
+                    <% if available && available <= 0 %>
+                      <div class="trial-next__slots trial-next__slots--full">
+                        <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.group_full') %>
+                      </div>
+                    <% elsif available && available <= 1 %>
+                      <div class="trial-next__slots trial-next__slots--low">
                         <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.last_slot') %>
-                      <% elsif available %>
+                      </div>
+                    <% elsif available && available <= 2 %>
+                      <div class="trial-next__slots trial-next__slots--medium">
                         <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.slots_available', count: available) %>
-                      <% end %>
-                    </div>
+                      </div>
+                    <% elsif available %>
+                      <div class="trial-next__slots trial-next__slots--plenty">
+                        <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.slots_available', count: available) %>
+                      </div>
+                    <% end %>
                   </div>
-                  <button type="button"
-                          class="btn btn-andes trial-next__btn"
-                          data-class-title="<%= trial_class["title"] %>"
-                          data-facilitator="<%= trial_class["facilitator"] %>"
-                          data-date="<%= l(first_date, format: :long) %>"
-                          data-time="<%= first_session["time"] %>"
-                          data-duration="<%= first_session["duration"] %>"
-                          data-session-detail-id="<%= trial_class["id"] %>"
-                          data-session-record-id="<%= first_session["id"] %>"
-                          onclick="selectTrialSession(this)">
-                    <%= t('website.trial_classes.book_this_class') %>
-                  </button>
+                  <% if available.nil? || available > 0 %>
+                    <button type="button"
+                            class="btn btn-andes trial-next__btn"
+                            data-class-title="<%= trial_class["title"] %>"
+                            data-facilitator="<%= trial_class["facilitator"] %>"
+                            data-date="<%= l(first_date, format: :long) %>"
+                            data-time="<%= first_session["time"] %>"
+                            data-duration="<%= first_session["duration"] %>"
+                            data-session-detail-id="<%= trial_class["id"] %>"
+                            data-session-record-id="<%= first_session["id"] %>"
+                            onclick="selectTrialSession(this)">
+                      <%= t('website.trial_classes.book_this_class') %>
+                    </button>
+                  <% end %>
                 </div>
 
                 <%# More dates — progressive disclosure %>
-                <% if remaining_sessions.any? %>
+                <% if remaining_sessions.any? && (available.nil? || available > 0) %>
                   <button type="button" class="trial-more-toggle" onclick="toggleMoreDates(this, 'more-dates-<%= class_index %>')">
                     <i class="bi bi-chevron-right"></i>
                     <%= t('website.trial_classes.more_dates', count: remaining_sessions.size) %>
