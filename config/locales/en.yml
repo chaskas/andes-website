@@ -133,6 +133,8 @@ en:
         privacy_link_text: "Privacy Policy"
       success: "Thank you! Your message has been submitted successfully. We will contact you soon."
       error: "There was an error submitting the form. Please try again."
+    turnstile:
+      failed: "We couldn't verify you're a real person. Please try again."
     trial_classes:
       title: "Trial Classes"
       label: "Trial classes"

@@ -133,6 +133,8 @@ de:
         privacy_link_text: "Datenschutzerklärung"
       success: "Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns bald mit Ihnen in Verbindung setzen."
       error: "Beim Senden des Formulars ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+    turnstile:
+      failed: "Wir konnten nicht bestätigen, dass Sie eine echte Person sind. Bitte versuchen Sie es erneut."
     trial_classes:
       title: "Probestunden"
       label: "Probestunden"
