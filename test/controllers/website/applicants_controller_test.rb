@@ -25,6 +25,7 @@ module Website
     end
 
     test "create with valid params saves and redirects" do
+      Website::ApplicantsController.any_instance.stubs(:valid_turnstile?).returns(true)
       assert_difference("Website::Applicant.count", 1) do
         post applicants_url, params: valid_params
       end
@@ -34,10 +35,21 @@ module Website
     end
 
     test "create with invalid params renders form with errors" do
+      Website::ApplicantsController.any_instance.stubs(:valid_turnstile?).returns(true)
       assert_no_difference("Website::Applicant.count") do
         post applicants_url, params: { applicant: { name: "", email: "bad" } }
       end
       assert_response :unprocessable_entity
+    end
+
+    test "create rejected when turnstile fails" do
+      Website::ApplicantsController.any_instance.stubs(:valid_turnstile?).returns(false)
+
+      assert_no_difference("Website::Applicant.count") do
+        post applicants_url, params: valid_params
+      end
+      assert_redirected_to new_applicant_url
+      assert_equal I18n.t("website.turnstile.failed", locale: :es), flash[:alert]
     end
   end
 end

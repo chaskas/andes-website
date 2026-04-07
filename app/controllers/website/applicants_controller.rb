@@ -5,6 +5,11 @@ module Website
     end
 
     def create
+      unless valid_turnstile?
+        redirect_to new_applicant_path, alert: t("website.turnstile.failed")
+        return
+      end
+
       @applicant = Applicant.new(applicant_params)
 
       if @applicant.save
@@ -21,6 +26,13 @@ module Website
       params.require(:applicant).permit(
         :name, :email, :phone, :profession, :location, :availability, :message
       )
+    end
+
+    # Provided by cloudflare-turnstile-rails gem in the main app
+    unless method_defined?(:valid_turnstile?)
+      def valid_turnstile?
+        true
+      end
     end
   end
 end
