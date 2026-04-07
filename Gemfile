@@ -23,4 +23,5 @@ gem 'rubocop-rails', require: false
 
 group :test do
   gem 'simplecov', require: false
+  gem 'mocha'
 end
