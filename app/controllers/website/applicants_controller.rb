@@ -27,12 +27,5 @@ module Website
         :name, :email, :phone, :profession, :location, :availability, :message
       )
     end
-
-    # Provided by cloudflare-turnstile-rails gem in the main app
-    unless method_defined?(:valid_turnstile?)
-      def valid_turnstile?
-        true
-      end
-    end
   end
 end

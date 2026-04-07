@@ -80,12 +80,5 @@ module Website
         :privacy_accepted, :source, :session_detail_id, :session_record_id
       )
     end
-
-    # Provided by cloudflare-turnstile-rails gem in the main app
-    unless method_defined?(:valid_turnstile?)
-      def valid_turnstile?
-        true
-      end
-    end
   end
 end
