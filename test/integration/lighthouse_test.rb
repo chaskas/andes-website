@@ -52,26 +52,15 @@ class LighthouseTest < ActionDispatch::IntegrationTest
     assert_match "Folie 1", response.body
   end
 
-  # 5.2: Fieldset/legend on radio button groups
+  # 5.2: Contact form fields
 
-  test "preferred language radio group uses fieldset with legend" do
+  test "contact form has required fields" do
     get root_url
     assert_response :success
 
-    assert_select "fieldset" do
-      assert_select "legend"
-      assert_select 'input[type="radio"][name*="preferred_language"]'
-    end
-  end
-
-  test "class type radio group uses fieldset with legend" do
-    get root_url
-    assert_response :success
-
-    assert_select "fieldset" do
-      assert_select "legend"
-      assert_select 'input[type="radio"][name*="class_type"]'
-    end
+    assert_select "input[name='enrollment[contact_name]']"
+    assert_select "input[name='enrollment[email]']"
+    assert_select "textarea[name='enrollment[comments]']"
   end
 
   # 5.3: Heading hierarchy

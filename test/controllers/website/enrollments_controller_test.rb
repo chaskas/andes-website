@@ -7,14 +7,9 @@ module Website
     def valid_params
       {
         enrollment: {
-          student_name: "María González",
-          student_age: "3 años",
           contact_name: "Ana González",
           email: "ana@example.com",
-          preferred_language: "espanol",
-          class_type: "iniciacion_musical",
-          availability: "Miércoles por la tarde",
-          comments: "Clase de prueba",
+          comments: "Tengo una pregunta sobre las clases",
           privacy_accepted: "1"
         }
       }

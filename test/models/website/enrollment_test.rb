@@ -4,34 +4,16 @@ module Website
   class EnrollmentTest < ActiveSupport::TestCase
     def valid_attributes
       {
-        student_name: "María González",
-        student_age: "3 años",
         contact_name: "Ana González",
         email: "ana@example.com",
-        preferred_language: "espanol",
-        class_type: "iniciacion_musical",
-        availability: "Miércoles por la tarde",
+        comments: "Tengo una pregunta sobre las clases",
         privacy_accepted: "1"
       }
     end
 
-    test "valid enrollment is saved" do
+    test "valid landing enrollment is saved" do
       enrollment = Enrollment.new(valid_attributes)
       assert enrollment.valid?
-    end
-
-    test "student_name is required" do
-      enrollment = Enrollment.new(valid_attributes.merge(student_name: nil))
-      assert_not enrollment.valid?
-      assert enrollment.errors[:student_name].any?
-    end
-
-    test "student_name must be between 2 and 60 characters" do
-      enrollment = Enrollment.new(valid_attributes.merge(student_name: "A"))
-      assert_not enrollment.valid?
-
-      enrollment = Enrollment.new(valid_attributes.merge(student_name: "A" * 61))
-      assert_not enrollment.valid?
     end
 
     test "contact_name is required" do
@@ -41,6 +23,9 @@ module Website
 
     test "contact_name must be between 2 and 60 characters" do
       enrollment = Enrollment.new(valid_attributes.merge(contact_name: "A"))
+      assert_not enrollment.valid?
+
+      enrollment = Enrollment.new(valid_attributes.merge(contact_name: "A" * 61))
       assert_not enrollment.valid?
     end
 
@@ -55,44 +40,27 @@ module Website
       assert enrollment.errors[:email].any?
     end
 
-    test "preferred_language must be in allowed values" do
-      enrollment = Enrollment.new(valid_attributes.merge(preferred_language: "frances"))
+    test "comments is required for landing" do
+      enrollment = Enrollment.new(valid_attributes.merge(comments: nil))
       assert_not enrollment.valid?
-      assert enrollment.errors[:preferred_language].any?
+      assert enrollment.errors[:comments].any?
     end
 
-    test "preferred_language accepts valid values" do
-      %w[espanol aleman ingles].each do |lang|
-        enrollment = Enrollment.new(valid_attributes.merge(preferred_language: lang))
-        assert enrollment.valid?, "#{lang} should be valid"
-      end
-    end
-
-    test "class_type must be in allowed values" do
-      enrollment = Enrollment.new(valid_attributes.merge(class_type: "violin"))
-      assert_not enrollment.valid?
-    end
-
-    test "class_type accepts valid values" do
-      %w[iniciacion_musical piano].each do |type|
-        enrollment = Enrollment.new(valid_attributes.merge(class_type: type))
-        assert enrollment.valid?, "#{type} should be valid"
-      end
-    end
-
-    test "student_age is required" do
-      enrollment = Enrollment.new(valid_attributes.merge(student_age: nil))
-      assert_not enrollment.valid?
-    end
-
-    test "availability is required" do
-      enrollment = Enrollment.new(valid_attributes.merge(availability: nil))
-      assert_not enrollment.valid?
-    end
-
-    test "phone and comments are optional" do
-      enrollment = Enrollment.new(valid_attributes.merge(phone: nil, comments: nil))
+    test "phone is optional" do
+      enrollment = Enrollment.new(valid_attributes.merge(phone: nil))
       assert enrollment.valid?
+    end
+
+    test "landing does not require student_name or student_age" do
+      enrollment = Enrollment.new(valid_attributes)
+      assert_nil enrollment.student_name
+      assert_nil enrollment.student_age
+      assert enrollment.valid?
+    end
+
+    test "source defaults to landing" do
+      enrollment = Enrollment.new(valid_attributes)
+      assert_equal "landing", enrollment.source
     end
 
     # Trial source tests
@@ -115,22 +83,21 @@ module Website
       assert enrollment.valid?
     end
 
-    test "trial enrollment does not require preferred_language" do
-      enrollment = Enrollment.new(trial_attributes)
-      assert enrollment.valid?
-      assert_nil enrollment.preferred_language
+    test "trial enrollment requires student_name" do
+      enrollment = Enrollment.new(trial_attributes.merge(student_name: nil))
+      assert_not enrollment.valid?
+      assert enrollment.errors[:student_name].any?
     end
 
-    test "trial enrollment does not require class_type" do
-      enrollment = Enrollment.new(trial_attributes)
-      assert enrollment.valid?
-      assert_nil enrollment.class_type
+    test "trial enrollment requires student_age" do
+      enrollment = Enrollment.new(trial_attributes.merge(student_age: nil))
+      assert_not enrollment.valid?
+      assert enrollment.errors[:student_age].any?
     end
 
-    test "trial enrollment does not require availability" do
-      enrollment = Enrollment.new(trial_attributes)
+    test "trial enrollment does not require comments" do
+      enrollment = Enrollment.new(trial_attributes.merge(comments: nil))
       assert enrollment.valid?
-      assert_nil enrollment.availability
     end
 
     test "trial enrollment requires session_detail_id" do
@@ -149,26 +116,6 @@ module Website
       enrollment = Enrollment.new(trial_attributes.merge(participant_id: nil))
       assert_not enrollment.valid?
       assert enrollment.errors[:participant_id].any?
-    end
-
-    test "source defaults to landing" do
-      enrollment = Enrollment.new(valid_attributes)
-      assert_equal "landing", enrollment.source
-    end
-
-    test "landing enrollment still requires preferred_language" do
-      enrollment = Enrollment.new(valid_attributes.merge(preferred_language: nil))
-      assert_not enrollment.valid?
-    end
-
-    test "landing enrollment still requires class_type" do
-      enrollment = Enrollment.new(valid_attributes.merge(class_type: nil))
-      assert_not enrollment.valid?
-    end
-
-    test "landing enrollment still requires availability" do
-      enrollment = Enrollment.new(valid_attributes.merge(availability: nil))
-      assert_not enrollment.valid?
     end
 
     test "invalid email rejected regardless of source" do

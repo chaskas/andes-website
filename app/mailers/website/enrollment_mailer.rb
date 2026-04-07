@@ -13,7 +13,7 @@ module Website
                 elsif enrollment.trial?
                   "Nueva clase de prueba: #{enrollment.student_name}"
                 else
-                  "Nueva inscripción: #{enrollment.student_name}"
+                  "Nuevo contacto: #{enrollment.contact_name}"
                 end
 
       mail(

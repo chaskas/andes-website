@@ -38,22 +38,19 @@
 
   <hr>
 <% else %>
-  <h2>Nueva inscripción</h2>
+  <h2>Nuevo contacto</h2>
 <% end %>
 
-<p><strong>Alumno/a:</strong> <%= @enrollment.student_name %></p>
-<p><strong>Edad:</strong> <%= @enrollment.student_age %></p>
+<% if @enrollment.trial? %>
+  <p><strong>Alumno/a:</strong> <%= @enrollment.student_name %></p>
+  <p><strong>Edad:</strong> <%= @enrollment.student_age %></p>
+<% end %>
 <p><strong>Contacto:</strong> <%= @enrollment.contact_name %></p>
 <p><strong>Email:</strong> <%= @enrollment.email %></p>
 <% if @enrollment.phone.present? %>
   <p><strong>Teléfono:</strong> <%= @enrollment.phone %></p>
 <% end %>
-<% unless @enrollment.trial? %>
-  <p><strong>Idioma preferido:</strong> <%= @enrollment.preferred_language %></p>
-  <p><strong>Tipo de clase:</strong> <%= @enrollment.class_type %></p>
-  <p><strong>Disponibilidad:</strong> <%= @enrollment.availability %></p>
-<% end %>
 <% if @enrollment.comments.present? %>
-  <h3>Comentarios:</h3>
+  <h3><%= @enrollment.trial? ? "Comentarios:" : "Mensaje:" %></h3>
   <p><%= simple_format(@enrollment.comments) %></p>
 <% end %>

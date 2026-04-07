@@ -47,7 +47,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
     assert_response :success
 
     assert_select "form[action=?]", enrollments_path
-    assert_select "input[name='enrollment[student_name]']"
+    assert_select "input[name='enrollment[contact_name]']"
     assert_select "input[name='enrollment[email]']"
   end
 end
