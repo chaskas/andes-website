@@ -132,6 +132,7 @@
                                 onclick="selectTrialSession(this)">
                           <span class="trial-date-pill__day"><%= l(date, format: "%a") %></span>
                           <span class="trial-date-pill__date"><%= l(date, format: "%d %b") %></span>
+                          <span class="trial-date-pill__time"><%= session["time"] %></span>
                         </button>
                       <% end %>
                     </div>
