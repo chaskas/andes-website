@@ -37,110 +37,242 @@
 <section class="trial-classes-section">
   <div class="container">
     <% if @trial_classes.any? %>
-      <div class="row g-4">
-        <% @trial_classes.each_with_index do |trial_class, class_index| %>
-          <% sessions = trial_class["sessions"] %>
-          <% next if sessions.empty? %>
-          <% first_session = sessions.first %>
-          <% first_date = Date.parse(first_session["date"]) %>
-          <% day_name = l(first_date, format: "%A") %>
-          <% available = trial_class["available_slots"] %>
-          <% remaining_sessions = sessions.drop(1) %>
+      <% group_classes = @trial_classes.select { |tc| tc["type"] == "group" } %>
+      <% individual_classes = @trial_classes.select { |tc| tc["type"] == "individual" } %>
 
-          <div class="col-lg-6 reveal">
-            <div class="trial-card">
-              <div class="trial-card__header">
-                <div class="trial-card__icon">
-                  <i class="bi bi-music-note-beamed"></i>
-                </div>
-                <div>
-                  <h3 class="trial-card__title"><%= trial_class["title"] %></h3>
-                  <% if trial_class["facilitator"] %>
-                    <p class="trial-card__facilitator"><%= trial_class["facilitator"] %></p>
-                  <% end %>
-                </div>
-              </div>
+      <%# Pill Tabs %>
+      <div class="trial-tabs">
+        <button type="button" class="trial-tab trial-tab--active" data-target="group" onclick="switchTrialTab(this)">
+          <%= t('website.trial_classes.tab_group') %>
+        </button>
+        <button type="button" class="trial-tab" data-target="individual" onclick="switchTrialTab(this)">
+          <%= t('website.trial_classes.tab_individual') %>
+        </button>
+      </div>
 
-              <div class="trial-card__body">
-                <%# Schedule pattern banner %>
-                <div class="trial-pattern">
-                  <i class="bi bi-arrow-repeat"></i>
-                  <%= t('website.trial_classes.every_day', day: day_name) %> · <%= first_session["time"] %> · <%= t('website.trial_classes.minutes', count: first_session["duration"]) %>
-                </div>
+      <%# Group classes %>
+      <div class="row g-4 trial-tab-content" id="trial-group-classes">
+        <% if group_classes.empty? %>
+          <div class="col-12"><p class="trial-tab-empty"><%= t('website.trial_classes.empty_tab') %></p></div>
+        <% else %>
+          <% group_classes.each_with_index do |trial_class, class_index| %>
+            <% card_id = "group-#{class_index}" %>
+            <% sessions = trial_class["sessions"] %>
+            <% next if sessions.empty? %>
+            <% first_session = sessions.first %>
+            <% first_date = Date.parse(first_session["date"]) %>
+            <% day_name = l(first_date, format: "%A") %>
+            <% available = trial_class["available_slots"] %>
+            <% remaining_sessions = sessions.drop(1) %>
 
-                <%# Next available session — hero treatment %>
-                <p class="trial-card__next-label"><%= t('website.trial_classes.next_class') %></p>
-                <div class="trial-next">
-                  <div class="trial-next__info">
-                    <div class="trial-next__date">
-                      <%= l(first_date, format: :long).capitalize %>
-                    </div>
-                    <% if available && available <= 0 %>
-                      <div class="trial-next__slots trial-next__slots--full">
-                        <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.group_full') %>
-                      </div>
-                    <% elsif available && available <= 1 %>
-                      <div class="trial-next__slots trial-next__slots--low">
-                        <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.last_slot') %>
-                      </div>
-                    <% elsif available && available <= 2 %>
-                      <div class="trial-next__slots trial-next__slots--medium">
-                        <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.slots_available', count: available) %>
-                      </div>
-                    <% elsif available %>
-                      <div class="trial-next__slots trial-next__slots--plenty">
-                        <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.slots_available', count: available) %>
-                      </div>
+            <div class="col-lg-6 reveal">
+              <div class="trial-card">
+                <div class="trial-card__header">
+                  <div class="trial-card__icon">
+                    <i class="bi bi-music-note-beamed"></i>
+                  </div>
+                  <div>
+                    <h3 class="trial-card__title"><%= trial_class["title"] %></h3>
+                    <% if trial_class["facilitator"] %>
+                      <p class="trial-card__facilitator"><%= trial_class["facilitator"] %></p>
                     <% end %>
                   </div>
-                  <% if available.nil? || available > 0 %>
-                    <button type="button"
-                            class="btn btn-andes trial-next__btn"
-                            data-class-title="<%= trial_class["title"] %>"
-                            data-facilitator="<%= trial_class["facilitator"] %>"
-                            data-date="<%= l(first_date, format: :long) %>"
-                            data-time="<%= first_session["time"] %>"
-                            data-duration="<%= first_session["duration"] %>"
-                            data-session-detail-id="<%= trial_class["id"] %>"
-                            data-session-record-id="<%= first_session["id"] %>"
-                            onclick="selectTrialSession(this)">
-                      <%= t('website.trial_classes.book_this_class') %>
-                    </button>
-                  <% end %>
                 </div>
 
-                <%# More dates — progressive disclosure %>
-                <% if remaining_sessions.any? && (available.nil? || available > 0) %>
-                  <button type="button" class="trial-more-toggle" onclick="toggleMoreDates(this, 'more-dates-<%= class_index %>')">
-                    <i class="bi bi-chevron-right"></i>
-                    <%= t('website.trial_classes.more_dates', count: remaining_sessions.size) %>
-                  </button>
+                <div class="trial-card__body">
+                  <%# Schedule pattern banner %>
+                  <div class="trial-pattern">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <%= t('website.trial_classes.every_day', day: day_name) %> · <%= first_session["time"] %> · <%= t('website.trial_classes.minutes', count: first_session["duration"]) %>
+                  </div>
 
-                  <div id="more-dates-<%= class_index %>" class="trial-more-dates" style="display: none;">
-                    <div class="trial-dates-grid">
-                      <% remaining_sessions.each do |session| %>
-                        <% date = Date.parse(session["date"]) %>
-                        <button type="button"
-                                class="trial-date-pill"
-                                data-class-title="<%= trial_class["title"] %>"
-                                data-facilitator="<%= trial_class["facilitator"] %>"
-                                data-date="<%= l(date, format: :long) %>"
-                                data-time="<%= session["time"] %>"
-                                data-duration="<%= session["duration"] %>"
-                                data-session-detail-id="<%= trial_class["id"] %>"
-                                data-session-record-id="<%= session["id"] %>"
-                                onclick="selectTrialSession(this)">
-                          <span class="trial-date-pill__day"><%= l(date, format: "%a") %></span>
-                          <span class="trial-date-pill__date"><%= l(date, format: "%d %b") %></span>
-                          <span class="trial-date-pill__time"><%= session["time"] %></span>
-                        </button>
+                  <%# Next available session — hero treatment %>
+                  <p class="trial-card__next-label"><%= t('website.trial_classes.next_class') %></p>
+                  <div class="trial-next">
+                    <div class="trial-next__info">
+                      <div class="trial-next__date">
+                        <%= l(first_date, format: :long).capitalize %>
+                      </div>
+                      <% if available && available <= 0 %>
+                        <div class="trial-next__slots trial-next__slots--full">
+                          <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.group_full') %>
+                        </div>
+                      <% elsif available && available <= 1 %>
+                        <div class="trial-next__slots trial-next__slots--low">
+                          <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.last_slot') %>
+                        </div>
+                      <% elsif available && available <= 2 %>
+                        <div class="trial-next__slots trial-next__slots--medium">
+                          <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.slots_available', count: available) %>
+                        </div>
+                      <% elsif available %>
+                        <div class="trial-next__slots trial-next__slots--plenty">
+                          <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.slots_available', count: available) %>
+                        </div>
                       <% end %>
                     </div>
+                    <% if available.nil? || available > 0 %>
+                      <button type="button"
+                              class="btn btn-andes trial-next__btn"
+                              data-class-title="<%= trial_class["title"] %>"
+                              data-facilitator="<%= trial_class["facilitator"] %>"
+                              data-date="<%= l(first_date, format: :long) %>"
+                              data-time="<%= first_session["time"] %>"
+                              data-duration="<%= first_session["duration"] %>"
+                              data-session-detail-id="<%= trial_class["id"] %>"
+                              data-session-record-id="<%= first_session["id"] %>"
+                              onclick="selectTrialSession(this)">
+                        <%= t('website.trial_classes.book_this_class') %>
+                      </button>
+                    <% end %>
                   </div>
-                <% end %>
+
+                  <%# More dates — progressive disclosure %>
+                  <% if remaining_sessions.any? && (available.nil? || available > 0) %>
+                    <button type="button" class="trial-more-toggle" onclick="toggleMoreDates(this, 'more-dates-<%= card_id %>')">
+                      <i class="bi bi-chevron-right"></i>
+                      <%= t('website.trial_classes.more_dates', count: remaining_sessions.size) %>
+                    </button>
+
+                    <div id="more-dates-<%= card_id %>" class="trial-more-dates" style="display: none;">
+                      <div class="trial-dates-grid">
+                        <% remaining_sessions.each do |session| %>
+                          <% date = Date.parse(session["date"]) %>
+                          <button type="button"
+                                  class="trial-date-pill"
+                                  data-class-title="<%= trial_class["title"] %>"
+                                  data-facilitator="<%= trial_class["facilitator"] %>"
+                                  data-date="<%= l(date, format: :long) %>"
+                                  data-time="<%= session["time"] %>"
+                                  data-duration="<%= session["duration"] %>"
+                                  data-session-detail-id="<%= trial_class["id"] %>"
+                                  data-session-record-id="<%= session["id"] %>"
+                                  onclick="selectTrialSession(this)">
+                            <span class="trial-date-pill__day"><%= l(date, format: "%a") %></span>
+                            <span class="trial-date-pill__date"><%= l(date, format: "%d %b") %></span>
+                            <span class="trial-date-pill__time"><%= session["time"] %></span>
+                          </button>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%# Individual classes (hidden by default) %>
+      <div class="row g-4 trial-tab-content" id="trial-individual-classes" style="display: none;">
+        <% if individual_classes.empty? %>
+          <div class="col-12"><p class="trial-tab-empty"><%= t('website.trial_classes.empty_tab') %></p></div>
+        <% else %>
+          <% individual_classes.each_with_index do |trial_class, class_index| %>
+            <% card_id = "individual-#{class_index}" %>
+            <% sessions = trial_class["sessions"] %>
+            <% next if sessions.empty? %>
+            <% first_session = sessions.first %>
+            <% first_date = Date.parse(first_session["date"]) %>
+            <% day_name = l(first_date, format: "%A") %>
+            <% available = trial_class["available_slots"] %>
+            <% remaining_sessions = sessions.drop(1) %>
+
+            <div class="col-lg-6 reveal">
+              <div class="trial-card">
+                <div class="trial-card__header">
+                  <div class="trial-card__icon">
+                    <i class="bi bi-music-note-beamed"></i>
+                  </div>
+                  <div>
+                    <h3 class="trial-card__title"><%= trial_class["title"] %></h3>
+                    <% if trial_class["facilitator"] %>
+                      <p class="trial-card__facilitator"><%= trial_class["facilitator"] %></p>
+                    <% end %>
+                  </div>
+                </div>
+
+                <div class="trial-card__body">
+                  <%# Schedule pattern banner %>
+                  <div class="trial-pattern">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <%= t('website.trial_classes.every_day', day: day_name) %> · <%= first_session["time"] %> · <%= t('website.trial_classes.minutes', count: first_session["duration"]) %>
+                  </div>
+
+                  <%# Next available session — hero treatment %>
+                  <p class="trial-card__next-label"><%= t('website.trial_classes.next_class') %></p>
+                  <div class="trial-next">
+                    <div class="trial-next__info">
+                      <div class="trial-next__date">
+                        <%= l(first_date, format: :long).capitalize %>
+                      </div>
+                      <% if available && available <= 0 %>
+                        <div class="trial-next__slots trial-next__slots--full">
+                          <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.group_full') %>
+                        </div>
+                      <% elsif available && available <= 1 %>
+                        <div class="trial-next__slots trial-next__slots--low">
+                          <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.last_slot') %>
+                        </div>
+                      <% elsif available && available <= 2 %>
+                        <div class="trial-next__slots trial-next__slots--medium">
+                          <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.slots_available', count: available) %>
+                        </div>
+                      <% elsif available %>
+                        <div class="trial-next__slots trial-next__slots--plenty">
+                          <i class="bi bi-circle-fill me-1"></i><%= t('website.trial_classes.slots_available', count: available) %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <% if available.nil? || available > 0 %>
+                      <button type="button"
+                              class="btn btn-andes trial-next__btn"
+                              data-class-title="<%= trial_class["title"] %>"
+                              data-facilitator="<%= trial_class["facilitator"] %>"
+                              data-date="<%= l(first_date, format: :long) %>"
+                              data-time="<%= first_session["time"] %>"
+                              data-duration="<%= first_session["duration"] %>"
+                              data-session-detail-id="<%= trial_class["id"] %>"
+                              data-session-record-id="<%= first_session["id"] %>"
+                              onclick="selectTrialSession(this)">
+                        <%= t('website.trial_classes.book_this_class') %>
+                      </button>
+                    <% end %>
+                  </div>
+
+                  <%# More dates — progressive disclosure %>
+                  <% if remaining_sessions.any? && (available.nil? || available > 0) %>
+                    <button type="button" class="trial-more-toggle" onclick="toggleMoreDates(this, 'more-dates-<%= card_id %>')">
+                      <i class="bi bi-chevron-right"></i>
+                      <%= t('website.trial_classes.more_dates', count: remaining_sessions.size) %>
+                    </button>
+
+                    <div id="more-dates-<%= card_id %>" class="trial-more-dates" style="display: none;">
+                      <div class="trial-dates-grid">
+                        <% remaining_sessions.each do |session| %>
+                          <% date = Date.parse(session["date"]) %>
+                          <button type="button"
+                                  class="trial-date-pill"
+                                  data-class-title="<%= trial_class["title"] %>"
+                                  data-facilitator="<%= trial_class["facilitator"] %>"
+                                  data-date="<%= l(date, format: :long) %>"
+                                  data-time="<%= session["time"] %>"
+                                  data-duration="<%= session["duration"] %>"
+                                  data-session-detail-id="<%= trial_class["id"] %>"
+                                  data-session-record-id="<%= session["id"] %>"
+                                  onclick="selectTrialSession(this)">
+                            <span class="trial-date-pill__day"><%= l(date, format: "%a") %></span>
+                            <span class="trial-date-pill__date"><%= l(date, format: "%d %b") %></span>
+                            <span class="trial-date-pill__time"><%= session["time"] %></span>
+                          </button>
+                        <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
       </div>
 
@@ -238,6 +370,22 @@
 </section>
 
 <script>
+  function switchTrialTab(button) {
+    // Update active tab
+    var tabs = document.querySelectorAll('.trial-tab');
+    tabs.forEach(function(tab) { tab.classList.remove('trial-tab--active'); });
+    button.classList.add('trial-tab--active');
+
+    // Show/hide content
+    var target = button.dataset.target;
+    var contents = document.querySelectorAll('.trial-tab-content');
+    contents.forEach(function(content) { content.style.display = 'none'; });
+    document.getElementById('trial-' + target + '-classes').style.display = '';
+
+    // Hide signup form (stale selection from other tab)
+    document.getElementById('trial-signup-form').style.display = 'none';
+  }
+
   function selectTrialSession(button) {
     var form = document.getElementById('trial-signup-form');
     var summaryClass = document.getElementById('summary-class');
