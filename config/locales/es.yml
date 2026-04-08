@@ -163,6 +163,9 @@ es:
       empty: "No hay clases de prueba disponibles en este momento"
       empty_hint: "Déjanos tus datos y te avisaremos cuando haya nuevas clases disponibles."
       empty_cta: "Ir al formulario de inscripción"
+      tab_group: "Grupal"
+      tab_individual: "Individual"
+      empty_tab: "No hay clases de este tipo disponibles por ahora."
     work_with_us:
       nav_link: "Trabaja con nosotros"
       title: "Trabaja con nosotros"

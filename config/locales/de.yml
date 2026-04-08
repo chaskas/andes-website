@@ -163,6 +163,9 @@ de:
       empty: "Derzeit sind keine Probestunden verfügbar"
       empty_hint: "Hinterlassen Sie uns Ihre Daten und wir informieren Sie, wenn neue Kurse verfügbar sind."
       empty_cta: "Zum Anmeldeformular"
+      tab_group: "Gruppe"
+      tab_individual: "Einzeln"
+      empty_tab: "Derzeit sind keine Kurse dieses Typs verfügbar."
     work_with_us:
       nav_link: "Arbeiten Sie mit uns"
       title: "Arbeiten Sie mit uns"

@@ -163,6 +163,9 @@ en:
       empty: "No trial classes available at the moment"
       empty_hint: "Leave us your details and we'll let you know when new classes are available."
       empty_cta: "Go to enrollment form"
+      tab_group: "Group"
+      tab_individual: "Individual"
+      empty_tab: "No classes of this type available right now."
     work_with_us:
       nav_link: "Work with us"
       title: "Work with us"
