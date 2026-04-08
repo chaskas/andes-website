@@ -28,6 +28,51 @@
   padding: 3rem 0 5rem;
 }
 
+// --- Pill Tabs ---
+.trial-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.trial-tab {
+  padding: 0.5rem 1.5rem;
+  border: 1px solid var(--andes-sand);
+  border-radius: 20px;
+  background: var(--andes-cream);
+  color: rgba(42, 37, 32, 0.6);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--andes-terra);
+    color: var(--andes-terra);
+  }
+
+  &--active {
+    background: var(--andes-terra);
+    border-color: var(--andes-terra);
+    color: #fff;
+
+    &:hover {
+      background: var(--andes-terra);
+      border-color: var(--andes-terra);
+      color: #fff;
+    }
+  }
+}
+
+// --- Per-tab empty state ---
+.trial-tab-empty {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: rgba(42, 37, 32, 0.5);
+  font-size: 1rem;
+}
+
 // --- Trial Card ---
 .trial-card {
   background: #fff;
@@ -339,6 +384,28 @@
 
 // --- Responsive ---
 @media (max-width: 768px) {
+  .trial-tabs {
+    gap: 0;
+    background: var(--andes-sand);
+    border-radius: 12px;
+    padding: 3px;
+  }
+
+  .trial-tab {
+    flex: 1;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+    padding: 0.6rem 0;
+    background: transparent;
+    color: rgba(42, 37, 32, 0.6);
+
+    &--active {
+      background: var(--andes-terra);
+      color: #fff;
+    }
+  }
+
   .trial-hero {
     padding: 6rem 0 2rem;
   }
